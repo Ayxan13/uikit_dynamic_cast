@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A0F94395CDA124856B67C2 /* ItunesPodcastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */; };
 		E28BF4D726E9D353003AB033 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4D626E9D353003AB033 /* Home.storyboard */; };
 		E28BF4DB26E9D3DC003AB033 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4DA26E9D3DC003AB033 /* Discover.storyboard */; };
 		E28BF4DD26E9D436003AB033 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4DC26E9D436003AB033 /* Profile.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItunesPodcastItem.swift; sourceTree = "<group>"; };
 		E28BF4D626E9D353003AB033 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		E28BF4DA26E9D3DC003AB033 /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		E28BF4DC26E9D436003AB033 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18A0F46AB714AAC58980518F /* data */ = {
+			isa = PBXGroup;
+			children = (
+				18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		E28BF4D526E9D27B003AB033 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E28BF4E726EA109D003AB033 /* PodcastsModel.swift */,
+				18A0F46AB714AAC58980518F /* data */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -309,6 +320,7 @@
 				E28BF4E826EA109D003AB033 /* PodcastsModel.swift in Sources */,
 				E2C1D4CF26E8D41E00FFE115 /* AppDelegate.swift in Sources */,
 				E2C1D4D126E8D41E00FFE115 /* SceneDelegate.swift in Sources */,
+				18A0F94395CDA124856B67C2 /* ItunesPodcastItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="mcr-4U-ruB">
             <objects>
-                <viewController id="04Y-Q0-tGr" customClass="HomeVC" customModule="uikit_dynamic_cast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="04Y-Q0-tGr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nkn-eQ-nh0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

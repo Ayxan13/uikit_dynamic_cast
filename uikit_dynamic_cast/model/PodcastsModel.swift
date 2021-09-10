@@ -1,6 +1,10 @@
 import Foundation
+import Combine
 
 class PodcastsModel {
+
+    private static let urlComponents = URLComponents(string: "https://itunes.apple.com/")!;
+
 
     typealias RequestResultHandler = (Data?, Error?) -> Void;
 
@@ -31,20 +35,29 @@ class PodcastsModel {
         task.resume()
     }
 
-    public static func search(for term: String) {
-        PodcastsModel.sendRequest(
-                url: "https://itunes.apple.com/search",
-                parameters: ["media": "podcast", "term": term],
-                completion: { result, error in
-                    if let error = error {
-                        print(error);
-                        return;
-                    }
+    public static func search(for term: String,
+                              then completionHandler: @escaping ([ItunesPodcastItem]?) -> Void) {
 
-                    if let result = result {
-                        print(String(data: result, encoding: .utf8) ?? "nil");
-                        return;
-                    }
-                });
+        var searchURLComponents = urlComponents;
+        searchURLComponents.path = "/search";
+        searchURLComponents.queryItems = [
+            URLQueryItem(name: "media", value: "podcast"),
+            URLQueryItem(name: "term", value: term),
+        ];
+
+        guard let searchUrl = searchURLComponents.url else {
+            return;
+        }
+
+        URLSession.shared.dataTask(with: searchUrl) { data, response, error in
+
+            var results: [ItunesPodcastItem]? = nil;
+
+            if let data = data, error == nil {
+                results = ItunesPodcastItem.fromItunesResponse(data);
+            }
+
+            completionHandler(results);
+        }.resume();
     }
 }
