@@ -2,7 +2,7 @@ import Foundation;
 
 // Represents one of the items itunes returns in response to a search request.
 // More info: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/UnderstandingSearchResults.html
-class ItunesPodcastItem: Codable {
+public class ItunesPodcastItem: Codable {
     public let feedUrl: String;
     public let collectionName: String;
     public let artistName: String?;
@@ -29,7 +29,7 @@ class ItunesPodcastItem: Codable {
         }
         self.collectionName = collectionName;
 
-        artistName = json["artistName"] as? String;
+        artistName  = json["artistName"] as? String;
         artworkUrl30 = json["artworkUrl30"] as? String;
         artworkUrl60 = json["artworkUrl60"] as? String;
         artworkUrl100 = json["artworkUrl100"] as? String;
