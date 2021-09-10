@@ -2,7 +2,7 @@ import UIKit;
 
 class DiscoverVC: UIViewController, UISearchResultsUpdating {
 
-    private let searchController = UISearchController(searchResultsController: PodcastSearchResultsVC());
+    private let searchController = PodcastSearchController(searchResultsController: PodcastSearchResultsVC());
 
     override func viewDidLoad() {
         super.viewDidLoad();

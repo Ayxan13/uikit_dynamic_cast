@@ -13,8 +13,8 @@ public class PodcastSearchResultsVC: UITableViewController {
         tableView.reloadData()
     }
 
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated);
         podcasts = nil;
     }
 
