@@ -1,5 +1,6 @@
-import Foundation
-import Combine
+import Foundation;
+import Combine;
+import FeedKit;
 
 class PodcastsModel {
     private init() {
@@ -31,5 +32,22 @@ class PodcastsModel {
 
             completionHandler(results);
         }.resume();
+    }
+
+
+    public static func loadAllEpisodes(
+            for podcast: ItunesPodcastItem,
+            then completionHandler: @escaping ([RSSFeedItem]?) -> Void) {
+
+        let parser = FeedParser(URL: podcast.feedUrl);
+        parser.parseAsync { result in
+            switch result {
+            case .success(let feed):
+                completionHandler(feed.rssFeed?.items)
+
+            case .failure:
+                completionHandler(nil);
+            }
+        }
     }
 }

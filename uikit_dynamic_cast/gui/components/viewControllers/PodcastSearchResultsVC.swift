@@ -40,7 +40,9 @@ public class PodcastSearchResultsVC: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell();
+        let cell = self.tableView.dequeueReusableCell(
+                withIdentifier: "PodcastSearchResultTile", for: indexPath
+        ) as! PodcastSearchResultTile;
 
         cell.textLabel?.text = podcasts?[indexPath.row].collectionName;
 
@@ -51,7 +53,7 @@ public class PodcastSearchResultsVC: UITableViewController {
         let feedStoryBoard = UIStoryboard(name: "PodcastFeed", bundle: nil);
 
         guard let vc = feedStoryBoard.instantiateViewController(withIdentifier: "podcastFeed") as? PodcastFeedVC else {
-            return
+            return;
         }
 
         vc.podcast = podcasts?[indexPath.row];

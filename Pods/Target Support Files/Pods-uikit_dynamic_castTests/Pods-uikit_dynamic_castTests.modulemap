@@ -1,0 +1,6 @@
+framework module Pods_uikit_dynamic_castTests {
+  umbrella header "Pods-uikit_dynamic_castTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

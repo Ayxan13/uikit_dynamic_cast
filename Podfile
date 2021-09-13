@@ -8,6 +8,7 @@ target 'uikit_dynamic_cast' do
   # Pods for uikit_dynamic_cast
 #  pod 'Alamofire'
 
+  pod 'FeedKit'
 
   target 'uikit_dynamic_castTests' do
     inherit! :search_paths

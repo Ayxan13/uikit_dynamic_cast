@@ -2,7 +2,10 @@ import UIKit;
 
 class DiscoverVC: UIViewController, UISearchResultsUpdating {
 
-    private let searchController = UISearchController(searchResultsController: PodcastSearchResultsVC());
+    private let searchController = UISearchController(
+            searchResultsController: UIStoryboard(name: "PodcastSearchResults", bundle: nil)
+                            .instantiateViewController(withIdentifier: "PodcastSearchResultsVC") as? PodcastSearchResultsVC);
+
     private var searchResultsController: PodcastSearchResultsVC {
         searchController.searchResultsController as! PodcastSearchResultsVC
     };
