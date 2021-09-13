@@ -28,11 +28,11 @@ class PodcastFeedVC: UIViewController {
         if let podcast = podcast {
             PodcastsModel.loadAllEpisodes(for: podcast) {
                 self.episodes = $0;
+                DispatchQueue.main.async {
+                    self.tableView.reloadData();
+                }
             };
             title = podcast.collectionName;
-            DispatchQueue.main.async {
-                self.tableView.reloadData();
-            }
         }
     }
 }
@@ -44,6 +44,7 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastEpisodeTile", for: indexPath) as! PodcastEpisodeTile;
+        
         cell.episode = episodes![indexPath.row];
         return cell;
     }

@@ -44,8 +44,10 @@ public class PodcastSearchResultsVC: UITableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "PodcastSearchResultTile") ?? UITableViewCell();
 
         cell.textLabel?.text = podcasts?[indexPath.row].collectionName;
+        cell.selectionStyle = .none;
+        cell.accessoryType = .disclosureIndicator;
 
-        return cell
+        return cell;
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
