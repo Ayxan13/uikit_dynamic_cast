@@ -2,7 +2,10 @@ import UIKit;
 
 class DiscoverVC: UIViewController, UISearchResultsUpdating {
 
-    private let searchController = PodcastSearchController(searchResultsController: PodcastSearchResultsVC());
+    private let searchController = UISearchController(searchResultsController: PodcastSearchResultsVC());
+    private var searchResultsController: PodcastSearchResultsVC {
+        searchController.searchResultsController as! PodcastSearchResultsVC
+    };
 
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -20,7 +23,10 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let userPauseDelaySec = 0.75;
 
-        guard searchController.searchBar.text != nil else {
+        let text = searchController.searchBar.text;
+
+        guard text != nil, !text!.isEmpty else {
+            searchResultsController.clear();
             return;
         }
 
@@ -40,17 +46,12 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
         }
 
         PodcastsModel.search(for: text) { items in
-            DispatchQueue.main.async {
-                let resVC = searchController.searchResultsController as? PodcastSearchResultsVC;
-
-                guard let items = items else {
-                    resVC?.showLoadingError();
-                    return;
-                }
-
-                resVC?.update(podcasts: items);
+            guard let items = items else {
+                self.searchResultsController.showLoadingError();
+                return;
             }
 
+            self.searchResultsController.update(podcasts: items);
         };
     }
 }

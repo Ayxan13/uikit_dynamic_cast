@@ -11,7 +11,6 @@
 		18A0F3BDC1D27CB02ABE7BEA /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0FC4D2F35521CD89774F2 /* Discover.storyboard */; };
 		18A0F62962BF6F5E20621659 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F240D51D436DAB4D9D94 /* DiscoverVC.swift */; };
 		18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F828DA8AF96BF77B6EBD /* PodcastSearchResultsVC.swift */; };
-		18A0F6DF5BBBE99B851A8214 /* PodcastSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F588D0EA0B8D1F56E646 /* PodcastSearchController.swift */; };
 		18A0F88B1218D3DDD6871874 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0F926650DD84EAFAF0DE7 /* Home.storyboard */; };
 		18A0F94395CDA124856B67C2 /* ItunesPodcastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */; };
 		18A0FE1DBAE1EAC9BCBED2B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0F688F57BFA9173187FC0 /* Main.storyboard */; };
@@ -44,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		18A0F240D51D436DAB4D9D94 /* DiscoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
-		18A0F588D0EA0B8D1F56E646 /* PodcastSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastSearchController.swift; sourceTree = "<group>"; };
 		18A0F828DA8AF96BF77B6EBD /* PodcastSearchResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastSearchResultsVC.swift; sourceTree = "<group>"; };
 		18A0F926650DD84EAFAF0DE7 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		18A0FA7F1A215CD215788528 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 		18A0FA04C82E8F845DC2EE8D /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				18A0F588D0EA0B8D1F56E646 /* PodcastSearchController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -372,7 +369,6 @@
 				18A0F94395CDA124856B67C2 /* ItunesPodcastItem.swift in Sources */,
 				18A0F62962BF6F5E20621659 /* DiscoverVC.swift in Sources */,
 				18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */,
-				18A0F6DF5BBBE99B851A8214 /* PodcastSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,15 +10,17 @@ public class PodcastSearchResultsVC: UITableViewController {
 
     public func update(podcasts newData: [ItunesPodcastItem]?) {
         podcasts = newData;
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData();
+        }
     }
 
-    public override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated);
-        podcasts = nil;
+    public func clear() {
+        update(podcasts: nil);
     }
 
     public func showLoadingError() {
+        clear();
         // TODO: show connection error
     }
 
