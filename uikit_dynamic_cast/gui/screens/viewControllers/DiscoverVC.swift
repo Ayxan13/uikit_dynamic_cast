@@ -12,10 +12,11 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
         setUpSearchController();
     }
 
-
     private func setUpSearchController() {
         searchController.searchResultsUpdater = self;
         navigationItem.searchController = searchController;
+        searchController.searchBar.placeholder = "Search for podcasts";
+        searchResultsController.navigationController = navigationController;
     }
 
     // This ensures that a request is not made unless the user
@@ -23,9 +24,7 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let userPauseDelaySec = 0.75;
 
-        let text = searchController.searchBar.text;
-
-        guard text != nil, !text!.isEmpty else {
+        guard !String.isNilOrEmpty(searchController.searchBar.text) else {
             searchResultsController.clear();
             return;
         }

@@ -2,11 +2,22 @@
 // Created by Ayxan Haqverdili on 10.09.21.
 //
 
-import UIKit.UIViewController;
+import UIKit;
 
 public class PodcastSearchResultsVC: UITableViewController {
     private var podcasts: [ItunesPodcastItem]? = nil;
     private static let cellReuseIdentifier = "SearchResultCell";
+
+    private var _navCtrl: UINavigationController?;
+
+    public override var navigationController: UINavigationController? {
+        get {
+            _navCtrl;
+        }
+        set {
+            _navCtrl = newValue;
+        }
+    }
 
     public func update(podcasts newData: [ItunesPodcastItem]?) {
         podcasts = newData;
@@ -25,7 +36,7 @@ public class PodcastSearchResultsVC: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return podcasts?.count ?? 0;
+        podcasts?.count ?? 0;
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,5 +45,16 @@ public class PodcastSearchResultsVC: UITableViewController {
         cell.textLabel?.text = podcasts?[indexPath.row].collectionName;
 
         return cell
+    }
+
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let feedStoryBoard = UIStoryboard(name: "PodcastFeed", bundle: nil);
+
+        guard let vc = feedStoryBoard.instantiateViewController(withIdentifier: "podcastFeed") as? PodcastFeedVC else {
+            return
+        }
+
+        vc.podcast = podcasts?[indexPath.row];
+        navigationController?.pushViewController(vc, animated: true);
     }
 }

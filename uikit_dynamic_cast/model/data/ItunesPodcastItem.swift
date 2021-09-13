@@ -5,6 +5,7 @@ import Foundation;
 public class ItunesPodcastItem: Codable {
     public let feedUrl: String;
     public let collectionName: String;
+
     public let artistName: String?;
     public let artworkUrl30: String?;
     public let artworkUrl60: String?;
