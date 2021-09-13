@@ -40,9 +40,8 @@ public class PodcastSearchResultsVC: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(
-                withIdentifier: "PodcastSearchResultTile", for: indexPath
-        ) as! PodcastSearchResultTile;
+
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "PodcastSearchResultTile") ?? UITableViewCell();
 
         cell.textLabel?.text = podcasts?[indexPath.row].collectionName;
 
