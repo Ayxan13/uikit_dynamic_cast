@@ -21,9 +21,7 @@ public class PodcastSearchResultsVC: UITableViewController {
 
     public func update(podcasts newData: [ItunesPodcastItem]?) {
         podcasts = newData;
-        DispatchQueue.main.async {
-            self.tableView.reloadData();
-        }
+        tableView.reloadData();
     }
 
     public func clear() {

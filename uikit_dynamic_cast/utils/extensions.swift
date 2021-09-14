@@ -4,8 +4,8 @@
 
 import Foundation
 
-extension String {
-    static func isNilOrEmpty(_ str: String?) -> Bool {
-        str?.isEmpty ?? true;
+extension Optional where Wrapped: Collection {
+    public var isNilOrEmpty: Bool {
+        self?.isEmpty ?? true;
     }
 }

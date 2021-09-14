@@ -1,13 +1,20 @@
 import UIKit;
 
 class DiscoverVC: UIViewController, UISearchResultsUpdating {
-
+    
     private let searchController = UISearchController(
             searchResultsController: UIStoryboard(name: "PodcastSearchResults", bundle: nil)
                             .instantiateViewController(withIdentifier: "PodcastSearchResultsVC") as? PodcastSearchResultsVC);
+    
+    private func refreshSearchData(_ items: [ItunesPodcastItem]?) {
+        DispatchQueue.main.async {
+            self.searchResultsController.update(podcasts: items);
+        }
+    }
 
     private var searchResultsController: PodcastSearchResultsVC {
-        searchController.searchResultsController as! PodcastSearchResultsVC
+        assert(Thread.isMainThread);
+        return searchController.searchResultsController as! PodcastSearchResultsVC
     };
 
     override func viewDidLoad() {
@@ -27,7 +34,7 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let userPauseDelaySec = 0.75;
 
-        guard !String.isNilOrEmpty(searchController.searchBar.text) else {
+        guard !(searchController.searchBar.text.isNilOrEmpty) else {
             searchResultsController.clear();
             return;
         }
@@ -47,13 +54,6 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
             return;
         }
 
-        PodcastsModel.search(for: text) { items in
-            guard let items = items else {
-                self.searchResultsController.showLoadingError();
-                return;
-            }
-
-            self.searchResultsController.update(podcasts: items);
-        };
+        PodcastsModel.search(for: text, then: refreshSearchData);
     }
 }
