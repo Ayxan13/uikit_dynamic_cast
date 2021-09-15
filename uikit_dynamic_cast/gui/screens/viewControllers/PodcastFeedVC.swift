@@ -10,50 +10,65 @@ import UIKit;
 import FeedKit;
 
 class PodcastFeedVC: UIViewController {
-    @IBOutlet weak var tableView: UITableView!;
-    
-    @IBOutlet weak var feedTitle: UILabel!
+    @IBOutlet weak var feedTitle: UILabel!;
     @IBOutlet weak var feedAuthor: UILabel!
-    
-    
-    private var episodes: [RSSFeedItem]?;
+    @IBOutlet weak var feedArtwork: UIImageView!
+    @IBOutlet weak var tableView: UITableView!;
 
-    public var podcast: ItunesPodcastItem? = nil {
+    public var podcast: ItunesPodcastItem? {
         didSet {
             loadData();
         }
     }
+    
+    private func loadData() {
+        guard let podcast = podcast else {
+            // TODO:
+            // We are not resetting the feed to
+            // an empty state when nil is set.
+            // This needs to be considered.
+            return;
+        }
+
+        DispatchQueue.main.async {
+            self.feedTitle.text = podcast.collectionName;
+            self.feedAuthor.text = podcast.artistName;
+        }
+
+        PodcastsModel.loadFeed(for: podcast) { _ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData();
+            }
+        }
+
+        podcast.loadFeed { _ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData();
+            }
+        }
+
+        podcast.loadImage{ img in
+            DispatchQueue.main.async {
+                self.feedArtwork.image = img;
+            }
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad();
-    }
-
-    
-    private func loadData() {
-        if let podcast = podcast {
-            DispatchQueue.main.async {
-//            self.feedTitle.text = podcast.collectionName;
-//                self.feedAuthor.text = podcast.artistName;
-            }
-            PodcastsModel.loadAllEpisodes(for: podcast) {
-                self.episodes = $0;
-                DispatchQueue.main.async {
-                    self.tableView.reloadData();
-                }
-            };
-        }
     }
 }
 
 extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        episodes?.count ?? 0;
+        podcast?.episodeCount ?? 0;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastEpisodeTile", for: indexPath) as! PodcastEpisodeTile;
         
-        cell.episode = episodes![indexPath.row];
+        cell.episode = podcast?.get(episode: indexPath.row);
         return cell;
     }
 }

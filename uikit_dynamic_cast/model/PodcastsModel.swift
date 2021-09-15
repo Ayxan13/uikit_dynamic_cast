@@ -1,5 +1,7 @@
 import Foundation;
+
 import Combine;
+
 import FeedKit;
 
 class PodcastsModel {
@@ -35,19 +37,35 @@ class PodcastsModel {
     }
 
 
-    public static func loadAllEpisodes(
+    public static func loadFeed(
             for podcast: ItunesPodcastItem,
-            then completionHandler: @escaping ([RSSFeedItem]?) -> Void) {
+            then completionHandler: @escaping (RSSFeed?) -> Void) {
 
         let parser = FeedParser(URL: podcast.feedUrl);
         parser.parseAsync { result in
             switch result {
             case .success(let feed):
-                completionHandler(feed.rssFeed?.items)
+                completionHandler(feed.rssFeed)
 
             case .failure:
                 completionHandler(nil);
             }
         }
     }
+
+    public static func loadImage(
+            url: URL,
+            then completionHandler: @escaping (UIImage?) -> Void) {
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            var img: UIImage? = nil;
+
+            if let data = data, error == nil {
+                img = UIImage(data: data);
+            }
+
+            completionHandler(img);
+        }.resume();
+    }
+
 }
