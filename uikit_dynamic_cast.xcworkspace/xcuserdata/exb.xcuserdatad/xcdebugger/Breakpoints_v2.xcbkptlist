@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5825BC43-4FC5-46AA-8C16-D9757715E60E"
+            uuid = "05371271-F5FE-400A-835D-570E6570CA8C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "uikit_dynamic_cast/gui/screens/viewControllers/PodcastFeedVC.swift"
+            filePath = "uikit_dynamic_cast/gui/components/viewControllers/PodcastEpisodeTile.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "loadData()"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "setUIFields()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

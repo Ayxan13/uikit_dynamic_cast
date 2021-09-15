@@ -11,8 +11,11 @@ import FeedKit;
 
 class PodcastFeedVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!;
+    
     @IBOutlet weak var feedTitle: UILabel!
-
+    @IBOutlet weak var feedAuthor: UILabel!
+    
+    
     private var episodes: [RSSFeedItem]?;
 
     public var podcast: ItunesPodcastItem? = nil {
@@ -28,10 +31,13 @@ class PodcastFeedVC: UIViewController {
     
     private func loadData() {
         if let podcast = podcast {
+            DispatchQueue.main.async {
+//            self.feedTitle.text = podcast.collectionName;
+//                self.feedAuthor.text = podcast.artistName;
+            }
             PodcastsModel.loadAllEpisodes(for: podcast) {
                 self.episodes = $0;
                 DispatchQueue.main.async {
-                    self.feedTitle.text = podcast.collectionName;
                     self.tableView.reloadData();
                 }
             };
