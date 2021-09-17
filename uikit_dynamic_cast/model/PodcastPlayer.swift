@@ -3,14 +3,17 @@
 //
 
 import Foundation;
+
 import AVFoundation;
+
 import FeedKit;
 
 class PodcastPlayer {
-    private var player: AVPlayer?;
+    private static var player: AVPlayer?;
+    private(set) static var currentlyPlaying: RSSFeedItem?;
 
     @discardableResult
-    public func play(_ episode: RSSFeedItem) -> Bool {
+    public static func play(_ episode: RSSFeedItem) -> Bool {
         guard let url = URL(string: episode.enclosure?.attributes?.url) else {
             return false;
         }
@@ -19,14 +22,21 @@ class PodcastPlayer {
         self.player = player;
 
         player.play();
+        currentlyPlaying = episode;
         return true;
     }
 
-    public func resume() {
-
+    public static func isCurrentlyPlaying(_ episode: RSSFeedItem?) -> Bool {
+        guard let episode = episode else {
+            return false;
+        }
+        return currentlyPlaying == episode;
     }
 
-    public func stop() {
+    public static func resume() {
+    }
 
+    public static func togglePlayPause() {
+        player?.play();
     }
 }

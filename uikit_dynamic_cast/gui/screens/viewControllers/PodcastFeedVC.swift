@@ -14,23 +14,15 @@ class PodcastFeedVC: UIViewController {
     @IBOutlet weak var feedAuthor: UILabel!;
     @IBOutlet weak var feedArtwork: UIImageView!;
     @IBOutlet weak var tableView: UITableView!;
-    
 
-    private let player = PodcastPlayer();
-
-    
-    @IBAction func onPlayButtonClick(_ sender: UIButton) {
-        if let episode = podcast?.feed?.items?[sender.tag] {
-            player.play(episode);
-        }
-    }
+    private weak var currentlyPlayingButton: UIButton?;
 
     public var podcast: ItunesPodcastItem? {
         didSet {
             loadData();
         }
     }
-    
+
     private func loadData() {
         guard let podcast = podcast else {
             // TODO:
@@ -57,7 +49,7 @@ class PodcastFeedVC: UIViewController {
             }
         }
 
-        podcast.loadImage{ img in
+        podcast.loadImage { img in
             DispatchQueue.main.async {
                 self.feedArtwork.image = img;
             }
@@ -77,9 +69,36 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastEpisodeTile", for: indexPath) as! PodcastEpisodeTile;
-        
+
         cell.episode = podcast?.get(episode: indexPath.row);
         cell.tag = indexPath.row;
+        cell.playButton.setImage(PodcastFeedVC.getPlayIcon(episode: cell.episode), for: .normal);
+
         return cell;
+    }
+}
+
+// Play pause functionality
+extension PodcastFeedVC {
+
+    private static func getPlayIcon(episode: RSSFeedItem?) -> UIImage {
+        UIImage(systemName: PodcastPlayer.isCurrentlyPlaying(episode) ?
+                        "pause.circle" : "play.circle"
+        )!;
+    }
+
+    @IBAction func onPlayButtonClick(_ sender: UIButton) {
+        guard let episode = podcast?.feed?.items?[sender.tag] else {
+            return;
+        }
+
+        if (PodcastPlayer.isCurrentlyPlaying(episode)) {
+            PodcastPlayer.togglePlayPause();
+        } else {
+            PodcastPlayer.play(episode);
+        }
+        currentlyPlayingButton?.setImage(PodcastFeedVC.getPlayIcon(episode: episode), for: .normal);
+        sender.setImage(PodcastFeedVC.getPlayIcon(episode: episode), for: .normal);
+        currentlyPlayingButton = sender;
     }
 }
