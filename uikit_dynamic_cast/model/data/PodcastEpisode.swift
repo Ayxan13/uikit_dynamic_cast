@@ -6,12 +6,11 @@ import Foundation;
 
 import FeedKit;
 
-public class PodcastEpisode : Codable, Equatable {
+public class PodcastEpisode: Codable, Equatable {
 
     public static func ==(lhs: PodcastEpisode, rhs: PodcastEpisode) -> Bool {
         lhs === rhs || lhs.audioUrl == rhs.audioUrl;
     }
-
 
     public let title: String;
     public let audioUrl: URL;
@@ -21,6 +20,10 @@ public class PodcastEpisode : Codable, Equatable {
     public let artworkUrl: URL?;
 
     private(set) var progress: TimeInterval = -1;
+
+    public var hasProgress: Bool {
+        progress >= 0;
+    }
 
     init?(feedItem dataPtr: RSSFeedItem) {
         guard let title = dataPtr.title else {
