@@ -82,9 +82,8 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 extension PodcastFeedVC {
 
     private static func getPlayIcon(episode: RSSFeedItem?) -> UIImage {
-        UIImage(systemName: PodcastPlayer.isCurrentlyPlaying(episode) ?
-                        "pause.circle" : "play.circle"
-        )!;
+        let currentlyPlaying = PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying();
+        return UIImage(systemName: currentlyPlaying ? "pause.circle" : "play.circle")!;
     }
 
     @IBAction func onPlayButtonClick(_ sender: UIButton) {
@@ -92,11 +91,12 @@ extension PodcastFeedVC {
             return;
         }
 
-        if (PodcastPlayer.isCurrentlyPlaying(episode)) {
+        if (PodcastPlayer.isCurrentItem(episode)) {
             PodcastPlayer.togglePlayPause();
         } else {
             PodcastPlayer.play(episode);
         }
+
         currentlyPlayingButton?.setImage(PodcastFeedVC.getPlayIcon(episode: nil), for: .normal);
         sender.setImage(PodcastFeedVC.getPlayIcon(episode: episode), for: .normal);
         currentlyPlayingButton = sender;

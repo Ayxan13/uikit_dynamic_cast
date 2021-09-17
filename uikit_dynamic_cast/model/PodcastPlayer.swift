@@ -23,12 +23,8 @@ class PodcastPlayer {
         return true;
     }
 
-    public static func isCurrentlyPlaying(_ episode: RSSFeedItem?) -> Bool {
+    public static func isCurrentItem(_ episode: RSSFeedItem?) -> Bool {
         guard let episode = episode else {
-            return false;
-        }
-
-        if (!isPlaying()) {
             return false;
         }
 
@@ -47,7 +43,7 @@ class PodcastPlayer {
         }
     }
 
-    private static func isPlaying() -> Bool {
+    public static func isPlaying() -> Bool {
         switch (player.state) {
         case .running, .playing, .bufferring:
             return true;
