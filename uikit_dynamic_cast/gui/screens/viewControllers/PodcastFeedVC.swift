@@ -71,7 +71,7 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastEpisodeTile", for: indexPath) as! PodcastEpisodeTile;
 
         cell.episode = podcast?.get(episode: indexPath.row);
-        cell.tag = indexPath.row;
+        cell.playButton.tag = indexPath.row;
         cell.playButton.setImage(PodcastFeedVC.getPlayIcon(episode: cell.episode), for: .normal);
 
         return cell;
@@ -97,7 +97,7 @@ extension PodcastFeedVC {
         } else {
             PodcastPlayer.play(episode);
         }
-        currentlyPlayingButton?.setImage(PodcastFeedVC.getPlayIcon(episode: episode), for: .normal);
+        currentlyPlayingButton?.setImage(PodcastFeedVC.getPlayIcon(episode: nil), for: .normal);
         sender.setImage(PodcastFeedVC.getPlayIcon(episode: episode), for: .normal);
         currentlyPlayingButton = sender;
     }

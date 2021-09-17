@@ -4,13 +4,13 @@
 
 import Foundation;
 
-import AVFoundation;
-
 import FeedKit;
 
+import AudioStreaming;
+
 class PodcastPlayer {
-    private static var player: AVPlayer?;
-    private(set) static var currentlyPlaying: RSSFeedItem?;
+    private static var player = AudioPlayer();
+    private(set) static var currentItem: RSSFeedItem?;
 
     @discardableResult
     public static func play(_ episode: RSSFeedItem) -> Bool {
@@ -18,11 +18,8 @@ class PodcastPlayer {
             return false;
         }
 
-        let player = AVPlayer(url: url);
-        self.player = player;
-
-        player.play();
-        currentlyPlaying = episode;
+        player.play(url: url);
+        currentItem = episode;
         return true;
     }
 
@@ -30,13 +27,34 @@ class PodcastPlayer {
         guard let episode = episode else {
             return false;
         }
-        return currentlyPlaying == episode;
+
+        if (!isPlaying()) {
+            return false;
+        }
+
+        return currentItem == episode;
     }
 
     public static func resume() {
+        player.resume();
     }
 
     public static func togglePlayPause() {
-        player?.play();
+        if (isPlaying()) {
+            player.pause();
+        } else {
+            player.resume();
+        }
+    }
+
+    private static func isPlaying() -> Bool {
+        switch (player.state) {
+        case .running, .playing, .bufferring:
+            return true;
+        default:
+            return false;
+        }
     }
 }
+
+

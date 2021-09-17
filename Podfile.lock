@@ -1,16 +1,20 @@
 PODS:
+  - AudioStreaming (0.6.0)
   - FeedKit (9.1.2)
 
 DEPENDENCIES:
+  - AudioStreaming
   - FeedKit
 
 SPEC REPOS:
   trunk:
+    - AudioStreaming
     - FeedKit
 
 SPEC CHECKSUMS:
+  AudioStreaming: f3605c8459d56fea615ac8b97084c07137247878
   FeedKit: 71653273ab08e618cd6fd1301ca08fc02dca6a9e
 
-PODFILE CHECKSUM: c336e3d198b70ce60636acfae454f1fab1091cae
+PODFILE CHECKSUM: 8b84bd9c5a9fd8225ab84a0f1349f67276f3376b
 
 COCOAPODS: 1.11.0

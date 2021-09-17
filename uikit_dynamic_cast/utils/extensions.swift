@@ -4,6 +4,7 @@
 
 import Foundation;
 import FeedKit;
+import AVFoundation;
 
 extension Optional where Wrapped: Collection {
     public var isNilOrEmpty: Bool {
@@ -17,5 +18,11 @@ extension URL {
             return nil;
         }
         self.init(string: url);
+    }
+}
+
+extension AVPlayer {
+    var isPlaying: Bool {
+        rate != 0 && error == nil
     }
 }

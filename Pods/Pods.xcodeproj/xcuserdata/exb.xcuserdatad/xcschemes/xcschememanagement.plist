@@ -4,33 +4,40 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FeedKit.xcscheme</key>
+		<key>AudioStreaming.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.xcscheme</key>
+		<key>FeedKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Pods-uikit_dynamic_cast.xcscheme</key>
+		<key>Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Pods-uikit_dynamic_castTests.xcscheme</key>
+		<key>Pods-uikit_dynamic_cast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>Pods-uikit_dynamic_castTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
