@@ -11,9 +11,19 @@ import FeedKit;
 
 class PodcastFeedVC: UIViewController {
     @IBOutlet weak var feedTitle: UILabel!;
-    @IBOutlet weak var feedAuthor: UILabel!
-    @IBOutlet weak var feedArtwork: UIImageView!
+    @IBOutlet weak var feedAuthor: UILabel!;
+    @IBOutlet weak var feedArtwork: UIImageView!;
     @IBOutlet weak var tableView: UITableView!;
+    
+
+    private let player = PodcastPlayer();
+
+    
+    @IBAction func onPlayButtonClick(_ sender: UIButton) {
+        if let episode = podcast?.feed?.items?[sender.tag] {
+            player.play(episode);
+        }
+    }
 
     public var podcast: ItunesPodcastItem? {
         didSet {
@@ -69,6 +79,7 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastEpisodeTile", for: indexPath) as! PodcastEpisodeTile;
         
         cell.episode = podcast?.get(episode: indexPath.row);
+        cell.tag = indexPath.row;
         return cell;
     }
 }

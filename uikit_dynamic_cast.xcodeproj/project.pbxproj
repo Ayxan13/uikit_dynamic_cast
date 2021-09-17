@@ -13,6 +13,7 @@
 		18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F828DA8AF96BF77B6EBD /* PodcastSearchResultsVC.swift */; };
 		18A0F88B1218D3DDD6871874 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0F926650DD84EAFAF0DE7 /* Home.storyboard */; };
 		18A0F94395CDA124856B67C2 /* ItunesPodcastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */; };
+		18A0FCB43A50CA6122B224B1 /* PodcastPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0FF9CF18C247834546B87 /* PodcastPlayer.swift */; };
 		18A0FE1DBAE1EAC9BCBED2B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0F688F57BFA9173187FC0 /* Main.storyboard */; };
 		18A0FFFDC476CA4EB4BC5EE8 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0FF4CAF3783436D077296 /* extensions.swift */; };
 		5C2C7D900FBA2D0CFE776BAE /* Pods_uikit_dynamic_castTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD981EF5C1FFC45A9A3FF3 /* Pods_uikit_dynamic_castTests.framework */; };
@@ -59,6 +60,7 @@
 		18A0FC2398A5C03D3C6069AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18A0FC4D2F35521CD89774F2 /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		18A0FF4CAF3783436D077296 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		18A0FF9CF18C247834546B87 /* PodcastPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastPlayer.swift; sourceTree = "<group>"; };
 		44BD981EF5C1FFC45A9A3FF3 /* Pods_uikit_dynamic_castTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uikit_dynamic_castTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		462B1D2CA704505BED7C6622 /* Pods-uikit_dynamic_castTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_castTests.release.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_castTests/Pods-uikit_dynamic_castTests.release.xcconfig"; sourceTree = "<group>"; };
 		D0F165FB5E497A6A9674307D /* Pods-uikit_dynamic_cast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_cast.release.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_cast/Pods-uikit_dynamic_cast.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				E28BF4E726EA109D003AB033 /* PodcastsModel.swift */,
 				18A0F46AB714AAC58980518F /* data */,
+				18A0FF9CF18C247834546B87 /* PodcastPlayer.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				18A0F62962BF6F5E20621659 /* DiscoverVC.swift in Sources */,
 				18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */,
 				18A0FFFDC476CA4EB4BC5EE8 /* extensions.swift in Sources */,
+				18A0FCB43A50CA6122B224B1 /* PodcastPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

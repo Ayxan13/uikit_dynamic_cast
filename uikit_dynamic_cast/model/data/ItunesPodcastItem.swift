@@ -67,14 +67,7 @@ public class ItunesPodcastItem {
     }
 
     init?(json: [String: Any]) {
-        let url = { (str: String?) -> URL? in
-            guard let str = str else {
-                return nil;
-            }
-            return URL(string: str);
-        };
-
-        guard let feedUrl = url(json["feedUrl"] as? String) else {
+        guard let feedUrl = URL(string: json["feedUrl"] as? String) else {
             return nil;
         }
 
@@ -87,10 +80,10 @@ public class ItunesPodcastItem {
         self.collectionName = collectionName;
 
         artistName = json["artistName"] as? String;
-        artworkUrl30 = url(json["artworkUrl30"] as? String);
-        artworkUrl60 = url(json["artworkUrl60"] as? String);
-        artworkUrl100 = url(json["artworkUrl100"] as? String);
-        artworkUrl600 = url(json["artworkUrl600"] as? String);
+        artworkUrl30 = URL(string: json["artworkUrl30"] as? String);
+        artworkUrl60 = URL(string: json["artworkUrl60"] as? String);
+        artworkUrl100 = URL(string: json["artworkUrl100"] as? String);
+        artworkUrl600 = URL(string: json["artworkUrl600"] as? String);
         collectionId = json["collectionId"] as? Int;
         releaseDate = json["releaseDate"] as? String;
         country = json["country"] as? String;

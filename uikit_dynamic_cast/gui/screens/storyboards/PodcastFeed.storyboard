@@ -147,6 +147,9 @@
                                                                         <color key="titleColor" systemColor="labelColor"/>
                                                                         <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="onPlayButtonClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NaV-91-xBE"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gum-FT-wEi">
                                                                     <rect key="frame" x="82.333333333333329" y="0.0" width="24.333333333333329" height="23.666666666666668"/>

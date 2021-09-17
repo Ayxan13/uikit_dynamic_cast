@@ -9,3 +9,14 @@ extension Optional where Wrapped: Collection {
         self?.isEmpty ?? true;
     }
 }
+
+extension URL {
+    init?(string url: String?) {
+        guard let url = url else {
+            return nil;
+        }
+        self.init(string: url);
+    }
+}
+
+
