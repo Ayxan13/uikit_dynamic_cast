@@ -43,17 +43,18 @@ class PodcastFeedVC: UIViewController {
             }
         }
 
-        podcast.loadFeed { _ in
-            DispatchQueue.main.async {
-                self.tableView.reloadData();
-            }
-        }
-
-        podcast.loadImage { img in
-            DispatchQueue.main.async {
-                self.feedArtwork.image = img;
-            }
-        }
+        podcast.loadData(
+                onImageLoaded: { img in
+                    DispatchQueue.main.async {
+                        self.feedArtwork.image = img;
+                    }
+                },
+                onItemsLoaded: { _ in
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData();
+                    }
+                }
+        );
     }
 
 
@@ -81,13 +82,13 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 // Play pause functionality
 extension PodcastFeedVC {
 
-    private static func getPlayIcon(episode: RSSFeedItem?) -> UIImage {
+    private static func getPlayIcon(episode: PodcastEpisode?) -> UIImage {
         let currentlyPlaying = PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying();
         return UIImage(systemName: currentlyPlaying ? "pause.circle" : "play.circle")!;
     }
 
     @IBAction func onPlayButtonClick(_ sender: UIButton) {
-        guard let episode = podcast?.feed?.items?[sender.tag] else {
+        guard let episode = podcast?.items?[sender.tag] else {
             return;
         }
 

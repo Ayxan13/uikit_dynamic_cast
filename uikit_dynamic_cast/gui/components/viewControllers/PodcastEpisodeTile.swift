@@ -21,7 +21,7 @@ class PodcastEpisodeTile: UITableViewCell {
     
     private let timeFmt = DateComponentsFormatter();
     
-    public var episode: RSSFeedItem? {
+    public var episode: PodcastEpisode? {
         didSet {
             setUIFields()
         }
@@ -31,11 +31,11 @@ class PodcastEpisodeTile: UITableViewCell {
     private func setUIFields() {
         title.text = episode?.title;
         
-        if let date = episode?.pubDate {
+        if let date = episode?.publishDate {
             publishDate.text = dateFmt.string(from: date);
         }
         
-        if let duration = episode?.iTunes?.iTunesDuration,
+        if let duration = episode?.duration,
            let fmtStr = timeFmt.string(from: duration) {
             playButton.setTitle(fmtStr, for: .normal);
         }

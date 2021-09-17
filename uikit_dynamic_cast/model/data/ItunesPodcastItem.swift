@@ -27,43 +27,69 @@ public class ItunesPodcastItem {
     };
 
     public var artwork: UIImage?;
-    public var feed: RSSFeed?;
+    public var items: [PodcastEpisode]? = nil;
 
-    public func loadImage(then onComplete: @escaping (UIImage?) -> Void) {
+    public func loadData(
+            onImageLoaded: ((UIImage?) -> Void)? = nil,
+            onItemsLoaded: (([PodcastEpisode]?) -> Void)? = nil) {
+        loadImage(then: onImageLoaded);
+        loadItems(then: onItemsLoaded);
+    }
+
+
+    private func loadImage(then onComplete: ((UIImage?) -> Void)?) {
         if let artwork = artwork {
-            onComplete(artwork);
+            onComplete?(artwork);
             return;
         }
 
         guard let url = highResArtworkUrl else {
-            onComplete(nil);
+            onComplete?(nil);
             return;
         }
 
         PodcastsModel.loadImage(url: url) { img in
             self.artwork = img;
-            onComplete(img);
+            onComplete?(img);
         }
     }
 
-    public func loadFeed(then onComplete: @escaping (RSSFeed?) -> Void) {
-        if let feed = feed {
-            onComplete(feed);
+    private func loadItems(then onComplete: (([PodcastEpisode]?) -> Void)?) {
+        if let items = items {
+            onComplete?(items);
             return;
         }
 
         PodcastsModel.loadFeed(for: self) { feed in
-            self.feed = feed;
-            onComplete(feed);
+            defer {
+                onComplete?(self.items);
+            }
+
+            self.items = nil;
+
+            if let rssItems = feed?.items {
+                self.items = ItunesPodcastItem.feedItemsToPodcastEpisodes(rssItems);
+            }
         }
     }
 
-    public func get(episode index: Int) -> RSSFeedItem? {
-        feed?.items?[index];
+    private static func feedItemsToPodcastEpisodes(_ feedItems: [RSSFeedItem]) -> [PodcastEpisode] {
+        var episodes: [PodcastEpisode] = [];
+        episodes.reserveCapacity(feedItems.count);
+        for item in feedItems {
+            if let episode = PodcastEpisode(feedItem: item) {
+                episodes.append(episode);
+            }
+        }
+        return episodes;
+    }
+
+    public func get(episode index: Int) -> PodcastEpisode? {
+        items?[index];
     }
 
     public var episodeCount: Int {
-        feed?.items?.count ?? 0;
+        return items?.count ?? 0;
     }
 
     init?(json: [String: Any]) {
