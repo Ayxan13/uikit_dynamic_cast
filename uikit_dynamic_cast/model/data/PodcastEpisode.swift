@@ -21,9 +21,6 @@ public class PodcastEpisode: Codable, Equatable {
 
     private(set) var progress: TimeInterval = -1;
 
-    public var hasProgress: Bool {
-        progress >= 0;
-    }
 
     init?(feedItem dataPtr: RSSFeedItem) {
         guard let title = dataPtr.title else {

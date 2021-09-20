@@ -37,7 +37,7 @@ class PodcastFeedVC: UIViewController {
             self.feedAuthor.text = podcast.artistName;
         }
 
-        PodcastsModel.loadFeed(for: podcast) { _ in
+        PodcastsNetworkModel.loadFeed(for: podcast) { _ in
             DispatchQueue.main.async {
                 self.tableView.reloadData();
             }
@@ -81,7 +81,6 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 
 // Play pause functionality
 extension PodcastFeedVC {
-
     private static func getPlayIcon(episode: PodcastEpisode?) -> UIImage {
         let currentlyPlaying = PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying();
         return UIImage(systemName: currentlyPlaying ? "pause.circle" : "play.circle")!;

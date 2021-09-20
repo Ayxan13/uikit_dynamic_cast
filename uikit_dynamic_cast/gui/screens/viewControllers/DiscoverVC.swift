@@ -54,6 +54,6 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
             return;
         }
 
-        PodcastsModel.search(for: text, then: refreshSearchData);
+        PodcastsNetworkModel.search(for: text, then: refreshSearchData);
     }
 }

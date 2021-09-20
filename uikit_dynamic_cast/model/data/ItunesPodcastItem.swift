@@ -48,7 +48,7 @@ public class ItunesPodcastItem {
             return;
         }
 
-        PodcastsModel.loadImage(url: url) { img in
+        PodcastsNetworkModel.loadImage(url: url) { img in
             self.artwork = img;
             onComplete?(img);
         }
@@ -60,7 +60,7 @@ public class ItunesPodcastItem {
             return;
         }
 
-        PodcastsModel.loadFeed(for: self) { feed in
+        PodcastsNetworkModel.loadFeed(for: self) { feed in
             defer {
                 onComplete?(self.items);
             }

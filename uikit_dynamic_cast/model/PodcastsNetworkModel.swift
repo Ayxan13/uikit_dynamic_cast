@@ -4,7 +4,7 @@ import Combine;
 
 import FeedKit;
 
-class PodcastsModel {
+struct PodcastsNetworkModel {
     private init() {
         /* all functions are static */
     }
