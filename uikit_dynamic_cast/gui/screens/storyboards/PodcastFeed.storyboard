@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QSD-rH-Dwh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2GY-RN-fWj">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="fm2-7G-yDN">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
@@ -34,17 +35,17 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-dT-MaH" userLabel="feedInfo">
                                                     <rect key="frame" x="0.0" y="0.0" width="336" height="112"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lU5-Rk-foU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="155.33333333333334" height="74"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lU5-Rk-foU" userLabel="titles">
+                                                            <rect key="frame" x="0.0" y="0.0" width="143.66666666666666" height="50"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Internet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKS-vX-nyF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="155.33333333333334" height="54"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="143.66666666666666" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CGP Grey &amp; Brady Haran" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-gk-Q9q">
-                                                                    <rect key="frame" x="0.0" y="62" width="155.33333333333334" height="12"/>
+                                                                    <rect key="frame" x="0.0" y="38" width="143.66666666666666" height="12"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <color key="textColor" systemColor="linkColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -115,7 +116,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PodcastEpisodeTile" translatesAutoresizingMaskIntoConstraints="NO" id="xqv-gn-ShP" customClass="PodcastEpisodeTile" customModule="uikit_dynamic_cast" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="222.33333396911621" width="375" height="95"/>
+                                        <rect key="frame" x="0.0" y="242.66666603088379" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xqv-gn-ShP" id="nuk-9c-IpC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
@@ -190,7 +191,6 @@
                             <constraint firstAttribute="bottom" secondItem="2GY-RN-fWj" secondAttribute="bottom" id="hYo-KK-lYW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NGg-aC-2Gl"/>
                     <connections>
                         <outlet property="feedArtwork" destination="gIB-xs-NHq" id="RmS-oR-ZSJ"/>
                         <outlet property="feedAuthor" destination="2a8-gk-Q9q" id="P4t-rX-sJk"/>
@@ -201,24 +201,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1021.6" y="113.79310344827587"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="bKX-XG-e8U">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QSD-rH-Dwh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FE2-GL-76W">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="3UL-uX-oaw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aSu-mV-coe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="115.94202898550725" y="113.83928571428571"/>
         </scene>
     </scenes>
     <resources>

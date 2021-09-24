@@ -21,7 +21,7 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
         super.viewDidLoad();
         setUpSearchController();
     }
-
+    
     private func setUpSearchController() {
         searchController.searchResultsUpdater = self;
         navigationItem.searchController = searchController;

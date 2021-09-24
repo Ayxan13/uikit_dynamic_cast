@@ -35,6 +35,7 @@ class PodcastFeedVC: UIViewController {
         DispatchQueue.main.async {
             self.feedTitle.text = podcast.collectionName;
             self.feedAuthor.text = podcast.artistName;
+            self.tableView.tableHeaderView?.sizeToFit()
         }
 
         PodcastsNetworkModel.loadFeed(for: podcast) { _ in
@@ -56,10 +57,9 @@ class PodcastFeedVC: UIViewController {
                 }
         );
     }
-
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad();
+        navigationItem.largeTitleDisplayMode = .never;
     }
 }
 
