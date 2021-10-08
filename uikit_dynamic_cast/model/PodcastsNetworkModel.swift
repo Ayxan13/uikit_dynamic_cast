@@ -9,63 +9,44 @@ struct PodcastsNetworkModel {
         /* all functions are static */
     }
 
-    private static let urlComponents = URLComponents(string: "https://itunes.apple.com/")!;
-
-    public static func search(for term: String,
-                              then completionHandler: @escaping ([ItunesPodcastItem]?) -> Void) {
-
-        var searchURLComponents = urlComponents;
+    public static func search(for term: String) async -> [PodcastData]? {
+        var searchURLComponents = URLComponents(string: "https://itunes.apple.com/")!;
         searchURLComponents.path = "/search";
         searchURLComponents.queryItems = [
             URLQueryItem(name: "media", value: "podcast"),
             URLQueryItem(name: "term", value: term),
         ];
 
-        guard let searchUrl = searchURLComponents.url else {
-            return;
+        guard let searchUrl = searchURLComponents.url else { return [] }
+
+        guard let (data, _) = try? await URLSession.shared.data(from: searchUrl) else {
+            return nil;
         }
 
-        URLSession.shared.dataTask(with: searchUrl) { data, response, error in
-            var results: [ItunesPodcastItem]? = nil;
-
-            if let data = data, error == nil {
-                results = ItunesPodcastItem.fromItunesResponse(data);
-            }
-
-            completionHandler(results);
-        }.resume();
+        return PodcastData.fromItunesResponse(data) ?? [];
     }
 
 
-    public static func loadFeed(
-            for podcast: ItunesPodcastItem,
-            then completionHandler: @escaping (RSSFeed?) -> Void) {
+//    public static func loadFeed(for podcast: PodcastData) async -> RSSFeed? {
+//        typealias PostContinuation = CheckedContinuation<RSSFeed?, Error>;
+//
+//        return try? await withCheckedThrowingContinuation { (continuation: PostContinuation) in
+//            let parser = FeedParser(URL: podcast.feedUrl);
+//
+//            switch parser.parse() {
+//            case .success(let feed):
+//                continuation.resume(returning: feed.rssFeed);
+//            case .failure:
+//                continuation.resume(returning: nil)
+//            }
+//        }
+//    }
 
-        let parser = FeedParser(URL: podcast.feedUrl);
-        parser.parseAsync { result in
-            switch result {
-            case .success(let feed):
-                completionHandler(feed.rssFeed)
-
-            case .failure:
-                completionHandler(nil);
-            }
-        }
-    }
-
-    public static func loadImage(
-            url: URL,
-            then completionHandler: @escaping (UIImage?) -> Void) {
-
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            var img: UIImage? = nil;
-
-            if let data = data, error == nil {
-                img = UIImage(data: data);
-            }
-
-            completionHandler(img);
-        }.resume();
-    }
-
+//    public static func loadImage(url: URL) async -> UIImage? {
+//        guard let (data, _) = try? await URLSession.shared.data(from: url) else {
+//            return nil;
+//        }
+//
+//        return UIImage(data: data);
+//    }
 }

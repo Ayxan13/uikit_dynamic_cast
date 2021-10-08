@@ -20,5 +20,197 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36FF9752-BF08-482D-AF1F-63773D7215DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/model/entities/PodcastData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "loadFeed(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "36FF9752-BF08-482D-AF1F-63773D7215DA - 9f95ca5568727a7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static uikit_dynamic_cast.PodcastData.loadFeed(from: Foundation.URL) async -&gt; Swift.Optional&lt;Swift.Array&lt;uikit_dynamic_cast.EpisodeData&gt;&gt;"
+                  moduleName = "uikit_dynamic_cast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/exb/src/uikit_dynamic_cast/uikit_dynamic_cast/model/entities/PodcastData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "321">
+               </Location>
+               <Location
+                  uuid = "36FF9752-BF08-482D-AF1F-63773D7215DA - cdc70c811515f264"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for static uikit_dynamic_cast.PodcastData.loadFeed(from: Foundation.URL) async -&gt; Swift.Optional&lt;Swift.Array&lt;uikit_dynamic_cast.EpisodeData&gt;&gt;"
+                  moduleName = "uikit_dynamic_cast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/exb/src/uikit_dynamic_cast/uikit_dynamic_cast/model/entities/PodcastData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "718">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31CA5790-B896-4C75-AD16-4ADBAA3F8919"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/model/entities/PodcastData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "loadFeed(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "31CA5790-B896-4C75-AD16-4ADBAA3F8919 - 9f95ca5568727a7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static uikit_dynamic_cast.PodcastData.loadFeed(from: Foundation.URL) async -&gt; Swift.Optional&lt;Swift.Array&lt;uikit_dynamic_cast.EpisodeData&gt;&gt;"
+                  moduleName = "uikit_dynamic_cast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/exb/src/uikit_dynamic_cast/uikit_dynamic_cast/model/entities/PodcastData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "321">
+               </Location>
+               <Location
+                  uuid = "31CA5790-B896-4C75-AD16-4ADBAA3F8919 - cdc70c811515f264"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for static uikit_dynamic_cast.PodcastData.loadFeed(from: Foundation.URL) async -&gt; Swift.Optional&lt;Swift.Array&lt;uikit_dynamic_cast.EpisodeData&gt;&gt;"
+                  moduleName = "uikit_dynamic_cast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/exb/src/uikit_dynamic_cast/uikit_dynamic_cast/model/entities/PodcastData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "718">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E33ACF3-219B-46E6-895F-23CEFB738E35"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/model/entities/PodcastData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "loadFeed(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6E33ACF3-219B-46E6-895F-23CEFB738E35 - 9f95ca5568727a7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static uikit_dynamic_cast.PodcastData.loadFeed(from: Foundation.URL) async -&gt; Swift.Optional&lt;Swift.Array&lt;uikit_dynamic_cast.EpisodeData&gt;&gt;"
+                  moduleName = "uikit_dynamic_cast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/exb/src/uikit_dynamic_cast/uikit_dynamic_cast/model/entities/PodcastData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "321">
+               </Location>
+               <Location
+                  uuid = "6E33ACF3-219B-46E6-895F-23CEFB738E35 - cdc70c811515f264"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for static uikit_dynamic_cast.PodcastData.loadFeed(from: Foundation.URL) async -&gt; Swift.Optional&lt;Swift.Array&lt;uikit_dynamic_cast.EpisodeData&gt;&gt;"
+                  moduleName = "uikit_dynamic_cast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/exb/src/uikit_dynamic_cast/uikit_dynamic_cast/model/entities/PodcastData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "718">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E39F27E-F801-4B14-993A-7CDE45A68AAD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/model/entities/PodcastData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "loadFeed(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F0DF557E-391D-4DF0-AE6E-426D199E1BEE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/model/entities/PodcastData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "loadFeed(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD6D9E89-8DFE-4062-8960-153004FC98B7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/model/entities/PodcastData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "loadFeed(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

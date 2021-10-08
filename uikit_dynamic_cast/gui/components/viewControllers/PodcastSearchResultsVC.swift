@@ -4,13 +4,13 @@
 
 import UIKit;
 
-public class PodcastSearchResultsVC: UITableViewController {
-    private var podcasts: [ItunesPodcastItem]? = nil;
+class PodcastSearchResultsVC: UITableViewController {
+    private var podcasts: [PodcastData]? = nil;
     private static let cellReuseIdentifier = "SearchResultCell";
 
     private var _navCtrl: UINavigationController?;
 
-    public override var navigationController: UINavigationController? {
+    override var navigationController: UINavigationController? {
         get {
             _navCtrl;
         }
@@ -19,25 +19,25 @@ public class PodcastSearchResultsVC: UITableViewController {
         }
     }
 
-    public func update(podcasts newData: [ItunesPodcastItem]?) {
+    func update(podcasts newData: [PodcastData]?) {
         podcasts = newData;
         tableView.reloadData();
     }
 
-    public func clear() {
+    func clear() {
         update(podcasts: nil);
     }
 
-    public func showLoadingError() {
+    func showLoadingError() {
         clear();
         // TODO: show connection error
     }
 
-    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         podcasts?.count ?? 0;
     }
 
-    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "PodcastSearchResultTile") ?? UITableViewCell();
 
@@ -48,14 +48,14 @@ public class PodcastSearchResultsVC: UITableViewController {
         return cell;
     }
 
-    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let feedStoryBoard = UIStoryboard(name: "PodcastFeed", bundle: nil);
 
         guard let vc = feedStoryBoard.instantiateViewController(withIdentifier: "podcastFeed") as? PodcastFeedVC else {
             return;
         }
 
-        vc.podcast = podcasts?[indexPath.row];
+        vc.set(podcastData: podcasts?[indexPath.row]);
         navigationController?.pushViewController(vc, animated: true);
     }
 }

@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="EpisodePersistentEntity" representedClassName="EpisodePersistentEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="artworkURL" optional="YES" attributeType="URI"/>
-        <attribute name="audioURL" optional="YES" attributeType="URI"/>
-        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="episodeDescription" optional="YES" attributeType="String"/>
-        <attribute name="parentPodcastURL" optional="YES" attributeType="URI"/>
-        <attribute name="progress" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="publishDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="EpisodeDAO" representedClassName="EpisodeDAO" syncable="YES" codeGenerationType="class">
+        <attribute name="data_" optional="YES" attributeType="Binary"/>
+        <attribute name="id_" optional="YES" attributeType="URI"/>
+        <attribute name="parentId_" optional="YES" attributeType="URI"/>
     </entity>
-    <entity name="PodcastPersistentEntity" representedClassName="PodcastPersistentEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="artworkURL" optional="YES" attributeType="URI"/>
-        <attribute name="country" optional="YES" attributeType="String"/>
-        <attribute name="feedURL" optional="YES" attributeType="URI"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="primaryGenre" optional="YES" attributeType="String"/>
+    <entity name="PodcastDAO" representedClassName="PodcastDAO" syncable="YES" codeGenerationType="class">
+        <attribute name="data_" optional="YES" attributeType="Binary"/>
+        <attribute name="id_" optional="YES" attributeType="URI"/>
     </entity>
     <elements>
-        <element name="EpisodePersistentEntity" positionX="-149.7583618164062" positionY="-70.0682373046875" width="128" height="149"/>
-        <element name="PodcastPersistentEntity" positionX="-328.234130859375" positionY="-60.72805786132812" width="117.73388671875" height="104"/>
+        <element name="EpisodeDAO" positionX="-149.7583618164062" positionY="-70.0682373046875" width="128" height="74"/>
+        <element name="PodcastDAO" positionX="-328.234130859375" positionY="-60.72805786132812" width="117.73388671875" height="59"/>
     </elements>
 </model>

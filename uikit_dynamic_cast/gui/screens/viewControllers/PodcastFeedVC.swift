@@ -17,47 +17,44 @@ class PodcastFeedVC: UIViewController {
 
     private weak var currentlyPlayingButton: UIButton?;
 
-    public var podcast: ItunesPodcastItem? {
+    private var items: [EpisodeData]? = nil {
         didSet {
-            loadData();
+            self.tableView.reloadData()
         }
     }
 
-    private func loadData() {
-        guard let podcast = podcast else {
-            // TODO:
-            // We are not resetting the feed to
-            // an empty state when nil is set.
-            // This needs to be considered.
-            return;
+    func set(podcastData: PodcastData?) {
+        guard let podcastData = podcastData else {
+            return
         }
+        
+        Task.init {
+            await load(podcastData: podcastData);
+        }
+    }
 
+    private func load(podcastData podcast: PodcastData) async {
         DispatchQueue.main.async {
             self.feedTitle.text = podcast.collectionName;
             self.feedAuthor.text = podcast.artistName;
             self.tableView.tableHeaderView?.sizeToFit()
         }
-
-        PodcastsNetworkModel.loadFeed(for: podcast) { _ in
-            DispatchQueue.main.async {
-                self.tableView.reloadData();
-            }
+        
+        let setItems = {
+            guard let items = await podcast.loadFeed() else { return }
+            DispatchQueue.main.async{ self.items = items }
         }
-
-        podcast.loadData(
-                onImageLoaded: { img in
-                    DispatchQueue.main.async {
-                        self.feedArtwork.image = img;
-                    }
-                },
-                onItemsLoaded: { _ in
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData();
-                    }
-                }
-        );
+        
+        let setImg = {
+            guard let img = await podcast.loadArtwork() else { return }
+            DispatchQueue.main.async { self.feedArtwork.image = img }
+        }
+        
+        await [
+            setImg(), setItems()
+        ]
     }
-    
+
     override func viewDidLoad() {
         navigationItem.largeTitleDisplayMode = .never;
     }
@@ -65,13 +62,13 @@ class PodcastFeedVC: UIViewController {
 
 extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        podcast?.episodeCount ?? 0;
+        items?.count ?? 0;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastEpisodeTile", for: indexPath) as! PodcastEpisodeTile;
 
-        cell.episode = podcast?.get(episode: indexPath.row);
+        cell.episode = items?[indexPath.row]
         cell.playButton.tag = indexPath.row;
         cell.playButton.setImage(PodcastFeedVC.getPlayIcon(episode: cell.episode), for: .normal);
 
@@ -81,13 +78,13 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 
 // Play pause functionality
 extension PodcastFeedVC {
-    private static func getPlayIcon(episode: PodcastEpisode?) -> UIImage {
+    private static func getPlayIcon(episode: EpisodeData?) -> UIImage {
         let currentlyPlaying = PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying();
         return UIImage(systemName: currentlyPlaying ? "pause.circle" : "play.circle")!;
     }
 
     @IBAction func onPlayButtonClick(_ sender: UIButton) {
-        guard let episode = podcast?.items?[sender.tag] else {
+        guard let episode = items?[sender.tag] else {
             return;
         }
 
@@ -98,6 +95,7 @@ extension PodcastFeedVC {
         }
 
         currentlyPlayingButton?.setImage(PodcastFeedVC.getPlayIcon(episode: nil), for: .normal);
+
         sender.setImage(PodcastFeedVC.getPlayIcon(episode: episode), for: .normal);
         currentlyPlayingButton = sender;
     }

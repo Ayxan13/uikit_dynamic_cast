@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		18A0F0A65A27B6D5D4B2CCE8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0FA7F1A215CD215788528 /* Profile.storyboard */; };
 		18A0F3BDC1D27CB02ABE7BEA /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0FC4D2F35521CD89774F2 /* Discover.storyboard */; };
-		18A0F4303F21B87401896713 /* PodcastEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F6641D970D5F6E2EDF21 /* PodcastEpisode.swift */; };
 		18A0F62962BF6F5E20621659 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F240D51D436DAB4D9D94 /* DiscoverVC.swift */; };
 		18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F828DA8AF96BF77B6EBD /* PodcastSearchResultsVC.swift */; };
+		18A0F7C2336B9F58BD1EE723 /* PodcastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F1EC545EFDB92CC961BC /* PodcastData.swift */; };
 		18A0F88B1218D3DDD6871874 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0F926650DD84EAFAF0DE7 /* Home.storyboard */; };
-		18A0F94395CDA124856B67C2 /* ItunesPodcastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */; };
 		18A0FAF41FF186B9276CE8A0 /* PodcastsPersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0F24ED7884C134A28D3BD /* PodcastsPersistenceModel.swift */; };
 		18A0FCB43A50CA6122B224B1 /* PodcastPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0FF9CF18C247834546B87 /* PodcastPlayer.swift */; };
 		18A0FE1DBAE1EAC9BCBED2B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A0F688F57BFA9173187FC0 /* Main.storyboard */; };
@@ -28,6 +27,8 @@
 		E29724F526EF31A00085708F /* PodcastFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29724F426EF31A00085708F /* PodcastFeedVC.swift */; };
 		E29724F926EF41BB0085708F /* PodcastSearchResults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29724F826EF41BB0085708F /* PodcastSearchResults.storyboard */; };
 		E29724FB26EF43000085708F /* PodcastEpisodeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29724FA26EF43000085708F /* PodcastEpisodeTile.swift */; };
+		E298D78E2706F36A00C8EFD1 /* EpisodeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E298D78D2706F36A00C8EFD1 /* EpisodeData.swift */; };
+		E2BBA71E2710163400F3B012 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBA71D2710163400F3B012 /* Optional.swift */; };
 		E2C1D4CF26E8D41E00FFE115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1D4CE26E8D41E00FFE115 /* AppDelegate.swift */; };
 		E2C1D4D126E8D41E00FFE115 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1D4D026E8D41E00FFE115 /* SceneDelegate.swift */; };
 		E2C1D4D826E8D42000FFE115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C1D4D726E8D42000FFE115 /* Assets.xcassets */; };
@@ -56,13 +57,12 @@
 /* Begin PBXFileReference section */
 		00F96251838A1B27C7820472 /* Pods-uikit_dynamic_cast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_cast.debug.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_cast/Pods-uikit_dynamic_cast.debug.xcconfig"; sourceTree = "<group>"; };
 		1286B96B419E17246BD349AB /* Pods-uikit_dynamic_castTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_castTests.debug.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_castTests/Pods-uikit_dynamic_castTests.debug.xcconfig"; sourceTree = "<group>"; };
+		18A0F1EC545EFDB92CC961BC /* PodcastData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastData.swift; sourceTree = "<group>"; };
 		18A0F240D51D436DAB4D9D94 /* DiscoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
 		18A0F24ED7884C134A28D3BD /* PodcastsPersistenceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastsPersistenceModel.swift; sourceTree = "<group>"; };
-		18A0F6641D970D5F6E2EDF21 /* PodcastEpisode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastEpisode.swift; sourceTree = "<group>"; };
 		18A0F828DA8AF96BF77B6EBD /* PodcastSearchResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastSearchResultsVC.swift; sourceTree = "<group>"; };
 		18A0F926650DD84EAFAF0DE7 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		18A0FA7F1A215CD215788528 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItunesPodcastItem.swift; sourceTree = "<group>"; };
 		18A0FC2398A5C03D3C6069AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18A0FC4D2F35521CD89774F2 /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		18A0FF4CAF3783436D077296 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		E29724F426EF31A00085708F /* PodcastFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastFeedVC.swift; sourceTree = "<group>"; };
 		E29724F826EF41BB0085708F /* PodcastSearchResults.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PodcastSearchResults.storyboard; sourceTree = "<group>"; };
 		E29724FA26EF43000085708F /* PodcastEpisodeTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeTile.swift; sourceTree = "<group>"; };
+		E298D78D2706F36A00C8EFD1 /* EpisodeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeData.swift; sourceTree = "<group>"; };
+		E2BBA71D2710163400F3B012 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E2C1D4CB26E8D41E00FFE115 /* uikit_dynamic_cast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uikit_dynamic_cast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C1D4CE26E8D41E00FFE115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2C1D4D026E8D41E00FFE115 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,15 +135,6 @@
 				E29724F226EF31120085708F /* PodcastFeed.storyboard */,
 			);
 			path = storyboards;
-			sourceTree = "<group>";
-		};
-		18A0F46AB714AAC58980518F /* data */ = {
-			isa = PBXGroup;
-			children = (
-				18A0FAF4AC2EAE62BE6AE55F /* ItunesPodcastItem.swift */,
-				18A0F6641D970D5F6E2EDF21 /* PodcastEpisode.swift */,
-			);
-			path = data;
 			sourceTree = "<group>";
 		};
 		18A0F76C092217A4E154D036 /* viewControllers */ = {
@@ -215,7 +208,6 @@
 			children = (
 				E290569526F862D100038F50 /* entities */,
 				E28BF4E726EA109D003AB033 /* PodcastsNetworkModel.swift */,
-				18A0F46AB714AAC58980518F /* data */,
 				18A0FF9CF18C247834546B87 /* PodcastPlayer.swift */,
 				18A0F24ED7884C134A28D3BD /* PodcastsPersistenceModel.swift */,
 			);
@@ -226,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				E28D560026FDED67005A61B6 /* View.swift */,
+				E2BBA71D2710163400F3B012 /* Optional.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -234,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				E290569626F862F000038F50 /* PodcastsAndEpisodes.xcdatamodeld */,
+				E298D78D2706F36A00C8EFD1 /* EpisodeData.swift */,
+				18A0F1EC545EFDB92CC961BC /* PodcastData.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -559,16 +554,17 @@
 				E29724FB26EF43000085708F /* PodcastEpisodeTile.swift in Sources */,
 				E2C1D4CF26E8D41E00FFE115 /* AppDelegate.swift in Sources */,
 				E29724F526EF31A00085708F /* PodcastFeedVC.swift in Sources */,
+				E298D78E2706F36A00C8EFD1 /* EpisodeData.swift in Sources */,
 				E2C1D4D126E8D41E00FFE115 /* SceneDelegate.swift in Sources */,
-				18A0F94395CDA124856B67C2 /* ItunesPodcastItem.swift in Sources */,
 				18A0F62962BF6F5E20621659 /* DiscoverVC.swift in Sources */,
 				18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */,
 				E290569826F862F000038F50 /* PodcastsAndEpisodes.xcdatamodeld in Sources */,
 				18A0FFFDC476CA4EB4BC5EE8 /* extensions.swift in Sources */,
 				18A0FCB43A50CA6122B224B1 /* PodcastPlayer.swift in Sources */,
-				18A0F4303F21B87401896713 /* PodcastEpisode.swift in Sources */,
+				E2BBA71E2710163400F3B012 /* Optional.swift in Sources */,
 				E28D560126FDED67005A61B6 /* View.swift in Sources */,
 				18A0FAF41FF186B9276CE8A0 /* PodcastsPersistenceModel.swift in Sources */,
+				18A0F7C2336B9F58BD1EE723 /* PodcastData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +745,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = uikit_dynamic_cast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -768,6 +765,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = uikit_dynamic_cast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

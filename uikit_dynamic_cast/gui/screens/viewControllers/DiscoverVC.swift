@@ -5,12 +5,6 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
     private let searchController = UISearchController(
             searchResultsController: UIStoryboard(name: "PodcastSearchResults", bundle: nil)
                             .instantiateViewController(withIdentifier: "PodcastSearchResultsVC") as? PodcastSearchResultsVC);
-    
-    private func refreshSearchData(_ items: [ItunesPodcastItem]?) {
-        DispatchQueue.main.async {
-            self.searchResultsController.update(podcasts: items);
-        }
-    }
 
     private var searchResultsController: PodcastSearchResultsVC {
         assert(Thread.isMainThread);
@@ -54,6 +48,11 @@ class DiscoverVC: UIViewController, UISearchResultsUpdating {
             return;
         }
 
-        PodcastsNetworkModel.search(for: text, then: refreshSearchData);
+        Task.init {
+            let items = await PodcastsNetworkModel.search(for: text)
+            DispatchQueue.main.async {
+                self.searchResultsController.update(podcasts: items);
+            }
+        }
     }
 }

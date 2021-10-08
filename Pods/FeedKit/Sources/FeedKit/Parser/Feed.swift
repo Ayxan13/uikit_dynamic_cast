@@ -33,7 +33,7 @@ public enum Feed {
 // MARK: - Convenience properties
 
 extension Feed {
-    
+
     public var rssFeed: RSSFeed? {
         switch self {
         case .rss(let rssFeed): return rssFeed

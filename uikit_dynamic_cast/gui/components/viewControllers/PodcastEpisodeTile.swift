@@ -21,7 +21,7 @@ class PodcastEpisodeTile: UITableViewCell {
     
     private let timeFmt = DateComponentsFormatter();
     
-    public var episode: PodcastEpisode? {
+    public var episode: EpisodeData? {
         didSet {
             setUIFields()
         }

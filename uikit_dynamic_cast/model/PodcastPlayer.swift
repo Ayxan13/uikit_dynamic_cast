@@ -10,16 +10,16 @@ import AudioStreaming;
 
 class PodcastPlayer {
     private static var player = AudioPlayer();
-    private(set) static var currentItem: PodcastEpisode?;
+    private(set) static var currentItem: EpisodeData?;
 
     @discardableResult
-    public static func play(_ episode: PodcastEpisode) -> Bool {
+    public static func play(_ episode: EpisodeData) -> Bool {
         player.play(url: episode.audioUrl);
         currentItem = episode;
         return true;
     }
 
-    public static func isCurrentItem(_ episode: PodcastEpisode?) -> Bool {
+    public static func isCurrentItem(_ episode: EpisodeData?) -> Bool {
         guard let episode = episode else {
             return false;
         }
