@@ -7,7 +7,7 @@
 
 import Foundation
 
-precedencegroup OptionalAssignment { associativity: right }
+precedencegroup OptionalAssignment { associativity: right assignment: true }
 
 infix operator ?= : OptionalAssignment
 

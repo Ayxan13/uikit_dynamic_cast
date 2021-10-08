@@ -43,16 +43,12 @@ class PodcastFeedVC: UIViewController {
         await withTaskGroup(of: Void.self) { group in
             group.addTask {
                 guard let items = await podcast.loadFeed() else { return }
-                DispatchQueue.main.async {
-                    self.items ?= items
-                }
+                DispatchQueue.main.async { self.items ?= items }
             }
             
             group.addTask {
                 guard let img = await podcast.loadArtwork() else { return }
-                DispatchQueue.main.async {
-                    self.feedArtwork.image ?= img
-                }
+                DispatchQueue.main.async { self.feedArtwork.image ?= img }
             }
         }
     }
@@ -75,6 +71,21 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
         cell.playButton.setImage(PodcastFeedVC.getPlayIcon(episode: cell.episode), for: .normal)
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let storyBoard = UIStoryboard(name: "EpisodeInfo", bundle: nil);
+
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: "episodeInfoVC") as? EpisodeInfoVC else {
+            return;
+        }
+        
+        vc.set(info: self.items?[indexPath.row].description ?? "no info")
+        navigationController?.pushViewController(vc, animated: true);
+        
+        print("Clicked \(indexPath.row)")
     }
 }
 
@@ -102,3 +113,5 @@ extension PodcastFeedVC {
         currentlyPlayingButton = sender
     }
 }
+
+

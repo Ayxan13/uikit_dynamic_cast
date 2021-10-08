@@ -42,13 +42,14 @@ class PodcastSearchResultsVC: UITableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "PodcastSearchResultTile") ?? UITableViewCell();
 
         cell.textLabel?.text = podcasts?[indexPath.row].collectionName;
-        cell.selectionStyle = .none;
         cell.accessoryType = .disclosureIndicator;
 
         return cell;
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
         let feedStoryBoard = UIStoryboard(name: "PodcastFeed", bundle: nil);
 
         guard let vc = feedStoryBoard.instantiateViewController(withIdentifier: "podcastFeed") as? PodcastFeedVC else {
