@@ -82,6 +82,17 @@ extension EpisodeData {
     }
 }
 
+extension EpisodeData
+{
+    func getFormattedDate() -> String?
+    {
+        guard let date = self.publishDate else { return nil; }
+        let fmt = DateFormatter();
+        fmt.dateFormat = "MMM dd, yyyy";
+        return fmt.string(from: date);
+    }
+}
+
 // Operators
 extension EpisodeData: Equatable {
     public static func ==(lhs: EpisodeData, rhs: EpisodeData) -> Bool {

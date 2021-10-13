@@ -14,8 +14,8 @@
             filePath = "uikit_dynamic_cast/gui/components/viewControllers/PodcastEpisodeTile.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "setUIFields()"
             landmarkType = "7">
          </BreakpointContent>
@@ -209,6 +209,22 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "loadFeed(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31A8BDFB-31ED-449C-8D28-BC0D9E23D849"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/gui/screens/viewControllers/EpisodeInfoVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "set(podcast:episode:artwork:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

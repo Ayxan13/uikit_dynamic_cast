@@ -11,7 +11,7 @@ extension NSAttributedString {
     
     // create attributed string from a regular string with HTML tags
     internal convenience init?(html: String) {
-        guard let data = html.data(using: .utf8, allowLossyConversion: false) else {
+        guard let data = html.data(using: .unicode, allowLossyConversion: false) else {
             return nil
         }
 

@@ -11,12 +11,29 @@ import WebKit
 
 public class EpisodeInfoVC: UIViewController
 {
-    @IBOutlet weak var info: UITextView!
     
-    func set(info str: String) {
-        let html = NSAttributedString(html: str);
+    @IBOutlet weak var artwork: UIImageView!
+    @IBOutlet weak var podcastTitle: UILabel!
+    @IBOutlet weak var podcastAuthors: UILabel!
+    @IBOutlet weak var publishedDate: UILabel!
+    @IBOutlet weak var episodeDescription: UITextView!
+    @IBOutlet weak var episodeTitle: UILabel!
+    
+    func set(podcast: PodcastData, episode: EpisodeData, artwork: UIImage?) {
         
-        DispatchQueue.main.async { self.info.attributedText = html }
+        let desc = episode.description?.toAttributedHTML()
+        let date = episode.getFormattedDate()
+        
+        DispatchQueue.main.async {
+            self.artwork.image = artwork
+            self.podcastTitle.text = podcast.collectionName
+            self.podcastAuthors.text = podcast.artistName
+            self.publishedDate.text = date
+            self.episodeTitle.text = episode.title
+            
+            self.episodeDescription.attributedText = desc
+            
+        }
     }
 }
 

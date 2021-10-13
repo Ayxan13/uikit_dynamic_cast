@@ -16,6 +16,8 @@ class PodcastFeedVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private weak var currentlyPlayingButton: UIButton?
+    
+    private var podcastData: PodcastData? = nil;
 
     private var items: [EpisodeData]? = nil {
         didSet {
@@ -27,13 +29,18 @@ class PodcastFeedVC: UIViewController {
         guard let podcastData = podcastData else {
             return
         }
+        
+        self.podcastData = podcastData
 
         Task.init {
-            await load(podcastData: podcastData)
+            await loadPodcastData()
         }
     }
 
-    private func load(podcastData podcast: PodcastData) async {
+    private func loadPodcastData() async {
+        guard let podcast = self.podcastData else {
+            return
+        }
         DispatchQueue.main.async {
             self.feedTitle.text = podcast.collectionName
             self.feedAuthor.text = podcast.artistName
@@ -82,10 +89,13 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
             return;
         }
         
-        vc.set(info: self.items?[indexPath.row].description ?? "no info")
-        navigationController?.pushViewController(vc, animated: true);
+        vc.set(
+            podcast: self.podcastData!,
+            episode: self.items![indexPath.row],
+            artwork: self.feedArtwork.image
+        )
         
-        print("Clicked \(indexPath.row)")
+        navigationController?.pushViewController(vc, animated: true);
     }
 }
 

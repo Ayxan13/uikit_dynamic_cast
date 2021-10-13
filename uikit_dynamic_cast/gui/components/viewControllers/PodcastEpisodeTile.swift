@@ -13,12 +13,6 @@ class PodcastEpisodeTile: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
-    private let dateFmt = { () -> DateFormatter in
-        let fmt = DateFormatter();
-        fmt.dateFormat = "MMM dd, yyyy";
-        return fmt;
-    }();
-    
     private let timeFmt = DateComponentsFormatter();
     
     public var episode: EpisodeData? {
@@ -30,10 +24,7 @@ class PodcastEpisodeTile: UITableViewCell {
     // Sets
     private func setUIFields() {
         title.text = episode?.title;
-        
-        if let date = episode?.publishDate {
-            publishDate.text = dateFmt.string(from: date);
-        }
+        publishDate.text = episode?.getFormattedDate()
         
         if let duration = episode?.duration,
            let fmtStr = timeFmt.string(from: duration) {
