@@ -62,7 +62,7 @@ public class EpisodeInfoVC: UIViewController
             self.episodeTitle.text = episode.title
             
             self.episodeDescription.attributedText = desc
-            self.episodeDescription.font = UIFont.systemFont(ofSize: 16.0)
+            self.episodeDescription.font = UIFont.systemFont(ofSize: 13.0)
             
             self.setPlayingIcon()
         }
