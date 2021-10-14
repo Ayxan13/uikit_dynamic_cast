@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension NSAttributedString {
     
@@ -17,7 +18,9 @@ extension NSAttributedString {
 
         guard let attributedString = try? NSMutableAttributedString(
                       data: data,
-                      options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
+                      options: [
+                        NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                      ],
                       documentAttributes: nil) else {
             return nil
         }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// [Optional Assignment]
 precedencegroup OptionalAssignment { associativity: right assignment: true }
 
 infix operator ?= : OptionalAssignment
@@ -15,5 +16,13 @@ infix operator ?= : OptionalAssignment
 public func ?= <T>(variable: inout T, value: T?) {
     if let value = value {
         variable = value
+    }
+}
+
+
+/// [Is Nil Or Empty]
+extension Optional where Wrapped: Collection {
+    public var isNilOrEmpty: Bool {
+        self?.isEmpty ?? true;
     }
 }

@@ -31,32 +31,32 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="llW-zu-bOJ" userLabel="feedHeader">
                                             <rect key="frame" x="19.666666666666657" y="20" width="336" height="158"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-dT-MaH" userLabel="feedInfo">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-dT-MaH" userLabel="feedInfo">
                                                     <rect key="frame" x="0.0" y="0.0" width="336" height="112"/>
                                                     <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gIB-xs-NHq">
+                                                            <rect key="frame" x="0.0" y="-0.3333333333333357" width="111.66666666666667" height="111.66666666666667"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="gIB-xs-NHq" secondAttribute="height" multiplier="1:1" id="CFN-FH-Ko5"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lU5-Rk-foU" userLabel="titles">
-                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="52.333333333333336"/>
+                                                            <rect key="frame" x="119.66666666666667" y="0.0" width="216.33333333333331" height="52.333333333333336"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKS-vX-nyF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="216.33333333333334" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="authors..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-gk-Q9q">
-                                                                    <rect key="frame" x="0.0" y="38" width="104" height="14.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="38" width="216.33333333333334" height="14.333333333333336"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" systemColor="linkColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gIB-xs-NHq">
-                                                            <rect key="frame" x="224" y="-0.3333333333333357" width="112" height="111.66666666666667"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="gIB-xs-NHq" secondAttribute="height" multiplier="1:1" id="CFN-FH-Ko5"/>
-                                                            </constraints>
-                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="gIB-xs-NHq" firstAttribute="width" secondItem="yVa-dT-MaH" secondAttribute="width" multiplier="0.333" id="a01-lU-Xgh"/>
@@ -65,37 +65,40 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqs-T6-g4k" userLabel="feedActions">
                                                     <rect key="frame" x="0.0" y="142.66666666666666" width="336" height="15.333333333333343"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHW-rA-f22" userLabel="subscribe">
-                                                            <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="23"/>
-                                                            <state key="normal" title="Subscribe" image="plus" catalog="system">
-                                                                <color key="titleColor" systemColor="labelColor"/>
-                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJF-Oa-IQn" userLabel="viewOnWeb">
-                                                            <rect key="frame" x="120.66666666666667" y="-0.66666666666665719" width="24.333333333333329" height="23.666666666666668"/>
-                                                            <state key="normal" image="globe" catalog="system">
-                                                                <color key="titleColor" systemColor="labelColor"/>
-                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNW-tg-jpR" userLabel="share">
-                                                            <rect key="frame" x="155" y="1" width="26.333333333333343" height="22"/>
-                                                            <state key="normal" image="arrowshape.turn.up.left" catalog="system">
-                                                                <color key="titleColor" systemColor="labelColor"/>
-                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                                            </state>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="fYK-xs-Ekr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="185.66666666666666" height="31"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHW-rA-f22" userLabel="subscribe">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="107" height="31"/>
+                                                                    <state key="normal" title="Subscribe" image="plus" catalog="system">
+                                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                                    </state>
+                                                                    <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" title="Subscribe">
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                                                    </buttonConfiguration>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJF-Oa-IQn" userLabel="viewOnWeb">
+                                                                    <rect key="frame" x="120.99999999999999" y="0.0" width="24.333333333333329" height="31"/>
+                                                                    <state key="normal" image="globe" catalog="system">
+                                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                                    </state>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNW-tg-jpR" userLabel="share">
+                                                                    <rect key="frame" x="159.33333333333334" y="0.0" width="26.333333333333343" height="31"/>
+                                                                    <state key="normal" image="arrowshape.turn.up.left" catalog="system">
+                                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="iJF-Oa-IQn" firstAttribute="bottom" secondItem="lHW-rA-f22" secondAttribute="bottom" id="ILZ-7h-xpa"/>
-                                                        <constraint firstItem="UNW-tg-jpR" firstAttribute="top" secondItem="Sqs-T6-g4k" secondAttribute="top" constant="1" id="XIv-lT-yK2"/>
-                                                        <constraint firstItem="lHW-rA-f22" firstAttribute="top" secondItem="Sqs-T6-g4k" secondAttribute="top" id="b4N-lw-OOc"/>
-                                                        <constraint firstItem="lHW-rA-f22" firstAttribute="leading" secondItem="Sqs-T6-g4k" secondAttribute="leading" id="ebL-gk-JNS"/>
-                                                        <constraint firstItem="UNW-tg-jpR" firstAttribute="bottom" secondItem="lHW-rA-f22" secondAttribute="bottom" id="k54-Z4-FVJ"/>
-                                                        <constraint firstItem="UNW-tg-jpR" firstAttribute="leading" secondItem="iJF-Oa-IQn" secondAttribute="trailing" constant="10" id="u3J-kN-Djk"/>
-                                                        <constraint firstItem="iJF-Oa-IQn" firstAttribute="leading" secondItem="lHW-rA-f22" secondAttribute="trailing" constant="18" id="xKl-o0-6yF"/>
+                                                        <constraint firstItem="fYK-xs-Ekr" firstAttribute="top" secondItem="Sqs-T6-g4k" secondAttribute="top" id="0xl-Ev-bR4"/>
+                                                        <constraint firstItem="fYK-xs-Ekr" firstAttribute="leading" secondItem="Sqs-T6-g4k" secondAttribute="leading" id="34g-Fl-b0U"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

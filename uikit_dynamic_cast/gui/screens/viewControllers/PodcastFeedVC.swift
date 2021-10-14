@@ -41,22 +41,20 @@ class PodcastFeedVC: UIViewController {
         guard let podcast = self.podcastData else {
             return
         }
+        
+        async let cacheFuture = CachedPoscastsTable.shared.getCache(for: podcast)
+        
         DispatchQueue.main.async {
             self.feedTitle.text = podcast.collectionName
             self.feedAuthor.text = podcast.artistName
             self.tableView.tableHeaderView?.sizeToFit()
         }
         
-        await withTaskGroup(of: Void.self) { group in
-            group.addTask {
-                guard let items = await podcast.loadFeed() else { return }
-                DispatchQueue.main.async { self.items ?= items }
-            }
-            
-            group.addTask {
-                guard let img = await podcast.loadArtwork() else { return }
-                DispatchQueue.main.async { self.feedArtwork.image ?= img }
-            }
+        let cache = await cacheFuture
+        
+        DispatchQueue.main.async {
+            self.feedArtwork.image ?= cache.artwork
+            self.items ?= cache.items
         }
     }
 
@@ -75,7 +73,10 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 
         cell.episode = items?[indexPath.row]
         cell.playButton.tag = indexPath.row
-        cell.playButton.setImage(PodcastFeedVC.getPlayIcon(episode: cell.episode), for: .normal)
+        
+        if let episode = cell.episode {
+            setButtonIcon(cell.playButton, with: episode)
+        }
 
         return cell
     }
@@ -101,11 +102,9 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 
 // Play pause functionality
 extension PodcastFeedVC {
-    private static func getPlayIcon(episode: EpisodeData?) -> UIImage {
-        let currentlyPlaying = PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying()
-        return UIImage(systemName: currentlyPlaying ? "pause.circle" : "play.circle")!
-    }
-
+    private static let pausedImg = UIImage.init(systemName: "pause.circle");
+    private static let playImg = UIImage.init(systemName: "play.circle");
+    
     @IBAction func onPlayButtonClick(_ sender: UIButton) {
         guard let episode = items?[sender.tag] else {
             return
@@ -117,10 +116,20 @@ extension PodcastFeedVC {
             PodcastPlayer.play(episode)
         }
 
-        currentlyPlayingButton?.setImage(PodcastFeedVC.getPlayIcon(episode: nil), for: .normal)
-
-        sender.setImage(PodcastFeedVC.getPlayIcon(episode: episode), for: .normal)
-        currentlyPlayingButton = sender
+        setButtonIcon(sender, with: episode)
+    }
+    
+    
+    func setButtonIcon(_ button: UIButton, with episode: EpisodeData) {
+        let isPlaying = (PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying())
+        
+        if isPlaying {
+            currentlyPlayingButton?.setImage(PodcastFeedVC.playImg, for: .normal)
+            currentlyPlayingButton = button
+            button.setImage(PodcastFeedVC.pausedImg, for: .normal)
+        } else {
+            button.setImage(PodcastFeedVC.playImg, for: .normal)
+        }
     }
 }
 

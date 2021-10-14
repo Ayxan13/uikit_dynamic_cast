@@ -32,7 +32,7 @@ public class EpisodeInfoVC: UIViewController
             self.episodeTitle.text = episode.title
             
             self.episodeDescription.attributedText = desc
-            
+            self.episodeDescription.font = UIFont.systemFont(ofSize: 16.0)
         }
     }
 }
