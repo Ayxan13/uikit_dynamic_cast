@@ -14,8 +14,6 @@ class PodcastFeedVC: UIViewController {
     @IBOutlet weak var feedAuthor: UILabel!
     @IBOutlet weak var feedArtwork: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-
-    private weak var currentlyPlayingButton: UIButton?
     
     private var podcastData: PodcastData? = nil;
 
@@ -114,16 +112,13 @@ extension PodcastFeedVC {
             PodcastPlayer.play(episode)
         }
 
-        setButtonIcon(sender, with: episode)
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
-    
     
     func setButtonIcon(_ button: UIButton, with episode: EpisodeData) {
         let isPlaying = (PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying())
         
         if isPlaying {
-            currentlyPlayingButton?.setImage(Constants.playImg, for: .normal)
-            currentlyPlayingButton = button
             button.setImage(Constants.pausedImg, for: .normal)
         } else {
             button.setImage(Constants.playImg, for: .normal)
