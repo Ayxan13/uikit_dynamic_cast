@@ -222,9 +222,25 @@
             filePath = "uikit_dynamic_cast/gui/screens/viewControllers/EpisodeInfoVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "set(podcast:episode:artwork:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "408A4D8F-00B6-4D15-A308-68AC18ACAB52"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uikit_dynamic_cast/gui/screens/viewControllers/EpisodeInfoVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "setPlayingIcon()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

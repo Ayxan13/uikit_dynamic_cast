@@ -19,12 +19,12 @@ class PodcastFeedVC: UIViewController {
     
     private var podcastData: PodcastData? = nil;
 
-    private var items: [EpisodeData]? = nil {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    private var items: [EpisodeData]? = nil
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     func set(podcastData: PodcastData?) {
         guard let podcastData = podcastData else {
             return
@@ -55,6 +55,7 @@ class PodcastFeedVC: UIViewController {
         DispatchQueue.main.async {
             self.feedArtwork.image ?= cache.artwork
             self.items ?= cache.items
+            self.tableView.reloadData()
         }
     }
 
@@ -102,9 +103,6 @@ extension PodcastFeedVC: UITableViewDataSource, UITableViewDelegate {
 
 // Play pause functionality
 extension PodcastFeedVC {
-    private static let pausedImg = UIImage.init(systemName: "pause.circle");
-    private static let playImg = UIImage.init(systemName: "play.circle");
-    
     @IBAction func onPlayButtonClick(_ sender: UIButton) {
         guard let episode = items?[sender.tag] else {
             return
@@ -124,11 +122,11 @@ extension PodcastFeedVC {
         let isPlaying = (PodcastPlayer.isCurrentItem(episode) && PodcastPlayer.isPlaying())
         
         if isPlaying {
-            currentlyPlayingButton?.setImage(PodcastFeedVC.playImg, for: .normal)
+            currentlyPlayingButton?.setImage(Constants.playImg, for: .normal)
             currentlyPlayingButton = button
-            button.setImage(PodcastFeedVC.pausedImg, for: .normal)
+            button.setImage(Constants.pausedImg, for: .normal)
         } else {
-            button.setImage(PodcastFeedVC.playImg, for: .normal)
+            button.setImage(Constants.playImg, for: .normal)
         }
     }
 }

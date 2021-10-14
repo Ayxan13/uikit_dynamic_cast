@@ -41,6 +41,7 @@
 		E2CF1EA92718275000402DA4 /* PodcastCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EA82718275000402DA4 /* PodcastCache.swift */; };
 		E2CF1EAB27183E7100402DA4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EAA27183E7100402DA4 /* URL.swift */; };
 		E2CF1EAD27183EA300402DA4 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EAC27183EA300402DA4 /* AVPlayer.swift */; };
+		E2CF1EAF271840F700402DA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EAE271840F700402DA4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		E2CF1EA82718275000402DA4 /* PodcastCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCache.swift; sourceTree = "<group>"; };
 		E2CF1EAA27183E7100402DA4 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		E2CF1EAC27183EA300402DA4 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
+		E2CF1EAE271840F700402DA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E54A824DB519D39CA07731A0 /* Pods_uikit_dynamic_cast_uikit_dynamic_castUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uikit_dynamic_cast_uikit_dynamic_castUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F697FA427E7115AC0D144727 /* Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.debug.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFA323C0103FE55E3CCAE9D7 /* Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.release.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		18A0FD304B30B1B6C4CE99A5 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				E2CF1EAE271840F700402DA4 /* Constants.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				18A0F62962BF6F5E20621659 /* DiscoverVC.swift in Sources */,
 				18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */,
 				E290569826F862F000038F50 /* PodcastsAndEpisodes.xcdatamodeld in Sources */,
+				E2CF1EAF271840F700402DA4 /* Constants.swift in Sources */,
 				18A0FCB43A50CA6122B224B1 /* PodcastPlayer.swift in Sources */,
 				E2B4DAAF2716B6C900121A55 /* String.swift in Sources */,
 				E2BBA71E2710163400F3B012 /* Optional.swift in Sources */,

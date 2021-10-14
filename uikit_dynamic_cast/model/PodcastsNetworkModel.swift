@@ -25,28 +25,4 @@ struct PodcastsNetworkModel {
 
         return PodcastData.fromItunesResponse(data) ?? [];
     }
-
-
-//    public static func loadFeed(for podcast: PodcastData) async -> RSSFeed? {
-//        typealias PostContinuation = CheckedContinuation<RSSFeed?, Error>;
-//
-//        return try? await withCheckedThrowingContinuation { (continuation: PostContinuation) in
-//            let parser = FeedParser(URL: podcast.feedUrl);
-//
-//            switch parser.parse() {
-//            case .success(let feed):
-//                continuation.resume(returning: feed.rssFeed);
-//            case .failure:
-//                continuation.resume(returning: nil)
-//            }
-//        }
-//    }
-
-//    public static func loadImage(url: URL) async -> UIImage? {
-//        guard let (data, _) = try? await URLSession.shared.data(from: url) else {
-//            return nil;
-//        }
-//
-//        return UIImage(data: data);
-//    }
 }

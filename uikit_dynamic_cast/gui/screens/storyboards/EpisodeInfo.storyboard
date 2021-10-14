@@ -86,6 +86,9 @@
                                                                     <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="onPlayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oca-4W-s4b"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKW-Ek-EM4">
                                                                 <rect key="frame" x="44" y="0.0" width="44" height="31"/>
@@ -145,6 +148,7 @@
                         <outlet property="artwork" destination="7P2-Li-gUr" id="Yph-m7-g8v"/>
                         <outlet property="episodeDescription" destination="yE9-9n-3bs" id="g4N-IC-hvp"/>
                         <outlet property="episodeTitle" destination="vIT-Hf-ubw" id="6N3-EF-4VO"/>
+                        <outlet property="playButton" destination="pAi-We-p61" id="7Me-YG-tGT"/>
                         <outlet property="podcastAuthors" destination="Mdc-0Y-lQX" id="lTj-wr-JZq"/>
                         <outlet property="podcastTitle" destination="Pcr-oI-eId" id="cTp-ip-5cd"/>
                         <outlet property="publishedDate" destination="Wuy-3q-Qlm" id="89r-Lt-Dde"/>
