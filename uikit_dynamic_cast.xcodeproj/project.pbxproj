@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,6 +42,10 @@
 		E2CF1EAB27183E7100402DA4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EAA27183E7100402DA4 /* URL.swift */; };
 		E2CF1EAD27183EA300402DA4 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EAC27183EA300402DA4 /* AVPlayer.swift */; };
 		E2CF1EAF271840F700402DA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EAE271840F700402DA4 /* Constants.swift */; };
+		E2CF1EB22718580600402DA4 /* LNPopupController-Static in Frameworks */ = {isa = PBXBuildFile; productRef = E2CF1EB12718580600402DA4 /* LNPopupController-Static */; };
+		E2CF1EB427185C9900402DA4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EB327185C9900402DA4 /* MainVC.swift */; };
+		E2CF1EB927186B8700402DA4 /* PopupPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EB827186B8700402DA4 /* PopupPlayerVC.swift */; };
+		E2CF1EBB27186BD400402DA4 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CF1EBA27186BD400402DA4 /* HomeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,9 @@
 		E2CF1EAA27183E7100402DA4 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		E2CF1EAC27183EA300402DA4 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
 		E2CF1EAE271840F700402DA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E2CF1EB327185C9900402DA4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		E2CF1EB827186B8700402DA4 /* PopupPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPlayerVC.swift; sourceTree = "<group>"; };
+		E2CF1EBA27186BD400402DA4 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E54A824DB519D39CA07731A0 /* Pods_uikit_dynamic_cast_uikit_dynamic_castUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uikit_dynamic_cast_uikit_dynamic_castUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F697FA427E7115AC0D144727 /* Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.debug.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFA323C0103FE55E3CCAE9D7 /* Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.release.xcconfig"; path = "Target Support Files/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests/Pods-uikit_dynamic_cast-uikit_dynamic_castUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C94A58983C433E05306EF4 /* Pods_uikit_dynamic_cast.framework in Frameworks */,
+				E2CF1EB22718580600402DA4 /* LNPopupController-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +215,9 @@
 				18A0F240D51D436DAB4D9D94 /* DiscoverVC.swift */,
 				E29724F426EF31A00085708F /* PodcastFeedVC.swift */,
 				E2BBA71F2710637C00F3B012 /* EpisodeInfoVC.swift */,
+				E2CF1EB327185C9900402DA4 /* MainVC.swift */,
+				E2CF1EB827186B8700402DA4 /* PopupPlayerVC.swift */,
+				E2CF1EBA27186BD400402DA4 /* HomeVC.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -354,6 +365,9 @@
 			dependencies = (
 			);
 			name = uikit_dynamic_cast;
+			packageProductDependencies = (
+				E2CF1EB12718580600402DA4 /* LNPopupController-Static */,
+			);
 			productName = uikit_dynamic_cast;
 			productReference = E2C1D4CB26E8D41E00FFE115 /* uikit_dynamic_cast.app */;
 			productType = "com.apple.product-type.application";
@@ -428,6 +442,9 @@
 				Base,
 			);
 			mainGroup = E2C1D4C226E8D41E00FFE115;
+			packageReferences = (
+				E2CF1EB02718580600402DA4 /* XCRemoteSwiftPackageReference "LNPopupController" */,
+			);
 			productRefGroup = E2C1D4CC26E8D41E00FFE115 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -589,14 +606,17 @@
 				E2BBA724271071FF00F3B012 /* NSAttributedString.swift in Sources */,
 				E2C1D4D126E8D41E00FFE115 /* SceneDelegate.swift in Sources */,
 				18A0F62962BF6F5E20621659 /* DiscoverVC.swift in Sources */,
+				E2CF1EBB27186BD400402DA4 /* HomeVC.swift in Sources */,
 				18A0F660A7FF3FFB1F0A147E /* PodcastSearchResultsVC.swift in Sources */,
 				E290569826F862F000038F50 /* PodcastsAndEpisodes.xcdatamodeld in Sources */,
 				E2CF1EAF271840F700402DA4 /* Constants.swift in Sources */,
 				18A0FCB43A50CA6122B224B1 /* PodcastPlayer.swift in Sources */,
 				E2B4DAAF2716B6C900121A55 /* String.swift in Sources */,
 				E2BBA71E2710163400F3B012 /* Optional.swift in Sources */,
+				E2CF1EB427185C9900402DA4 /* MainVC.swift in Sources */,
 				E2CF1EAB27183E7100402DA4 /* URL.swift in Sources */,
 				E2BBA7202710637C00F3B012 /* EpisodeInfoVC.swift in Sources */,
+				E2CF1EB927186B8700402DA4 /* PopupPlayerVC.swift in Sources */,
 				E28D560126FDED67005A61B6 /* View.swift in Sources */,
 				18A0FAF41FF186B9276CE8A0 /* PodcastsPersistenceModel.swift in Sources */,
 				18A0F7C2336B9F58BD1EE723 /* PodcastData.swift in Sources */,
@@ -937,6 +957,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E2CF1EB02718580600402DA4 /* XCRemoteSwiftPackageReference "LNPopupController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LeoNatan/LNPopupController";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2CF1EB12718580600402DA4 /* LNPopupController-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2CF1EB02718580600402DA4 /* XCRemoteSwiftPackageReference "LNPopupController" */;
+			productName = "LNPopupController-Static";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E290569626F862F000038F50 /* PodcastsAndEpisodes.xcdatamodeld */ = {

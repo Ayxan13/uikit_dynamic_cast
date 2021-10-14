@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
 import FeedKit
+import LNPopupController
 
 class PodcastFeedVC: UIViewController {
     @IBOutlet weak var feedTitle: UILabel!
@@ -21,6 +21,10 @@ class PodcastFeedVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+    }
+    
+    override var bottomDockingViewForPopupBar: UIView? {
+        return UIImageView(image: Constants.playImg)
     }
     
     func set(podcastData: PodcastData?) {
@@ -109,7 +113,7 @@ extension PodcastFeedVC {
         if (PodcastPlayer.isCurrentItem(episode)) {
             PodcastPlayer.togglePlayPause()
         } else {
-            PodcastPlayer.play(episode)
+            PodcastPlayer.play(episode, tabBarController: tabBarController)
         }
 
         DispatchQueue.main.async { self.tableView.reloadData() }

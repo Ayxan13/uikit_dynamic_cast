@@ -13,9 +13,23 @@ class PodcastPlayer {
     private(set) static var currentItem: EpisodeData?;
 
     @discardableResult
-    public static func play(_ episode: EpisodeData) -> Bool {
+    public static func play(_ episode: EpisodeData, tabBarController: UITabBarController?) -> Bool {
         player.play(url: episode.audioUrl);
         currentItem = episode;
+        
+        let demoVC = PopupPlayerVC()
+        
+        demoVC.view.backgroundColor = .red
+        demoVC.popupItem.title = episode.title
+        demoVC.popupItem.subtitle = "[subtitle]"
+        demoVC.popupItem.progress = 0.34
+        demoVC.popupItem.image = Constants.playImg
+            
+        tabBarController?.presentPopupBar(
+            withContentViewController: demoVC,
+            animated: true, completion: nil
+        )
+        
         return true;
     }
 

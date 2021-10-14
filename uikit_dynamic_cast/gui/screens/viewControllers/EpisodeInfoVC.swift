@@ -30,7 +30,7 @@ public class EpisodeInfoVC: UIViewController
         if (PodcastPlayer.isCurrentItem(episode)) {
             PodcastPlayer.togglePlayPause()
         } else {
-            PodcastPlayer.play(episode)
+            PodcastPlayer.play(episode, tabBarController: tabBarController)
         }
 
         DispatchQueue.main.async {
