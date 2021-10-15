@@ -2,63 +2,61 @@
 // Created by Ayxan Haqverdili on 17.09.21.
 //
 
-import Foundation;
+import Foundation
 
-import FeedKit;
+import FeedKit
 
-import AudioStreaming;
+import AudioStreaming
 
 class PodcastPlayer {
-    private static var player = AudioPlayer();
-    private(set) static var currentItem: EpisodeData?;
+    private static var player = AudioPlayer()
+    private(set) static var currentItem: EpisodeData? = nil
+    private static var bottomPlayerVC: PopupPlayerVC? = nil
 
-    @discardableResult
-    public static func play(_ episode: EpisodeData, tabBarController: UITabBarController?) -> Bool {
-        player.play(url: episode.audioUrl);
-        currentItem = episode;
+    public static func play(episode: EpisodeData, artwork: UIImage?, tabBarController: UITabBarController?) {
+        guard episode != currentItem else {
+            self.togglePlayPause()
+            return
+        }
         
-        let demoVC = PopupPlayerVC()
+        player.play(url: episode.audioUrl)
+        self.currentItem = episode
         
-        demoVC.view.backgroundColor = .red
-        demoVC.popupItem.title = episode.title
-        demoVC.popupItem.subtitle = "[subtitle]"
-        demoVC.popupItem.progress = 0.34
-        demoVC.popupItem.image = Constants.playImg
+        let bottomPlayer = PopupPlayerVC(title: episode.title, image: artwork)
+        self.bottomPlayerVC = bottomPlayer
             
         tabBarController?.presentPopupBar(
-            withContentViewController: demoVC,
+            withContentViewController: bottomPlayer,
             animated: true, completion: nil
         )
-        
-        return true;
     }
 
     public static func isCurrentItem(_ episode: EpisodeData?) -> Bool {
         guard let episode = episode else {
-            return false;
+            return false
         }
 
-        return currentItem == episode;
+        return currentItem == episode
     }
 
-    public static func resume() {
-        player.resume();
+    private static func resume() {
+        player.resume()
     }
 
-    public static func togglePlayPause() {
+    private static func togglePlayPause() {
         if (isPlaying()) {
-            player.pause();
+            player.pause()
         } else {
-            player.resume();
+            player.resume()
         }
     }
 
     public static func isPlaying() -> Bool {
         switch (player.state) {
         case .running, .playing, .bufferring:
-            return true;
+            return true
         default:
-            return false;
+            return false
         }
     }
 }

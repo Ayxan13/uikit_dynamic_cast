@@ -10,7 +10,6 @@ import UIKit
 
 struct PodcastCache
 {
-    let podcastData: PodcastData
     let artwork: UIImage?
     let items: [EpisodeData]?
 }
@@ -34,7 +33,6 @@ class CachedPoscastsTable
         async let items = podcastData.loadFeed()
         
         let cache = PodcastCache(
-            podcastData: podcastData,
             artwork: await img,
             items: await items
         );

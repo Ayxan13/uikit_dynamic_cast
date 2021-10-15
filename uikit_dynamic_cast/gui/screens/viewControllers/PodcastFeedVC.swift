@@ -109,12 +109,8 @@ extension PodcastFeedVC {
         guard let episode = items?[sender.tag] else {
             return
         }
-
-        if (PodcastPlayer.isCurrentItem(episode)) {
-            PodcastPlayer.togglePlayPause()
-        } else {
-            PodcastPlayer.play(episode, tabBarController: tabBarController)
-        }
+        
+        PodcastPlayer.play(episode: episode, artwork: self.feedArtwork?.image, tabBarController: tabBarController)
 
         DispatchQueue.main.async { self.tableView.reloadData() }
     }

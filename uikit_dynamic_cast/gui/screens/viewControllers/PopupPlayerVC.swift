@@ -9,5 +9,10 @@ import UIKit
 import LNPopupController
 
 class PopupPlayerVC: LNPopupCustomBarViewController {
-
+    convenience init(title: String, image: UIImage?) {
+        self.init()
+        self.popupItem.title = title
+        self.popupItem.image = image
+        self.popupItem.progress = .zero
+    }
 }

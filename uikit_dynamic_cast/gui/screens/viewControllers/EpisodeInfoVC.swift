@@ -27,11 +27,7 @@ public class EpisodeInfoVC: UIViewController
             return
         }
         
-        if (PodcastPlayer.isCurrentItem(episode)) {
-            PodcastPlayer.togglePlayPause()
-        } else {
-            PodcastPlayer.play(episode, tabBarController: tabBarController)
-        }
+        PodcastPlayer.play(episode: episode, artwork: self.artwork.image, tabBarController: tabBarController)
 
         DispatchQueue.main.async {
             self.setPlayingIcon()
