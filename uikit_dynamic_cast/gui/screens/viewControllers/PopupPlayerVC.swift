@@ -14,5 +14,9 @@ class PopupPlayerVC: LNPopupCustomBarViewController {
         self.popupItem.title = title
         self.popupItem.image = image
         self.popupItem.progress = .zero
+        
+        let playButton = UIBarButtonItem(image: Constants.playImg, style: .plain, target: .none, action: nil)
+        
+        self.popupItem.leadingBarButtonItems = [playButton]
     }
 }

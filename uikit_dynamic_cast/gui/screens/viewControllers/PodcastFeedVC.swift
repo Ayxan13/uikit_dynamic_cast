@@ -18,10 +18,18 @@ class PodcastFeedVC: UIViewController {
     private var podcastData: PodcastData? = nil;
 
     private var items: [EpisodeData]? = nil
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+    
+    convenience init() {
+        self.init()
+        
+        PodcastPlayer.focusedEpisode.objectWillChange {
+            
+        }
     }
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.tableView.reloadData()
+//    }
     
     override var bottomDockingViewForPopupBar: UIView? {
         return UIImageView(image: Constants.playImg)

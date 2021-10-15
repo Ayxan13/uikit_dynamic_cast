@@ -225,7 +225,7 @@
             startingLineNumber = "54"
             endingLineNumber = "54"
             landmarkName = "set(podcast:episode:artwork:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -241,7 +241,7 @@
             startingLineNumber = "68"
             endingLineNumber = "68"
             landmarkName = "setPlayingIcon()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -254,8 +254,8 @@
             filePath = "uikit_dynamic_cast/gui/screens/viewControllers/PodcastFeedVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "bottomDockingViewForPopupBar"
             landmarkType = "24">
          </BreakpointContent>
