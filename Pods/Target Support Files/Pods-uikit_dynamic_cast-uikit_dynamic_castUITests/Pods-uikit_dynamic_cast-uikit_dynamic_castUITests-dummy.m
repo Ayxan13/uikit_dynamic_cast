@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_uikit_dynamic_cast_uikit_dynamic_castUITests : NSObject
-@end
-@implementation PodsDummy_Pods_uikit_dynamic_cast_uikit_dynamic_castUITests
-@end
